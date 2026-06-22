@@ -58,6 +58,7 @@
         .org-box .title { font-size: 13px; font-weight: 700; color: #1a1a1a; }
         .org-box .name { font-size: 12px; color: #666; }
         .org-box.ceo { border-color: #f97316; background: #fef9f4; }
+        .org-box.pm { border-color: #3b82f6; background: #eff6ff; }
         .org-connector { font-size: 24px; color: #ccc; padding: 4px 0; }
         .footer { margin-top: 48px; padding-top: 24px; border-top: 2px solid #f0f0f0; display: flex; justify-content: space-between; font-size: 12px; color: #999; flex-wrap: wrap; gap: 8px; }
         .footer .confidential { font-weight: 600; color: #f97316; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -70,7 +71,25 @@
         .info-item { padding: 8px 12px; background: #f8f8f8; border-radius: 6px; }
         .info-item .label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
         .info-item .value { font-size: 14px; font-weight: 600; color: #1a1a1a; }
-        @media (max-width: 820px) { .document-container { padding: 30px 24px; } .header { flex-direction: column; gap: 16px; } .header-right { text-align: left; } .toc-grid { grid-template-columns: 1fr 1fr; } .swot-grid { grid-template-columns: 1fr; } .org-row { gap: 16px; } .info-grid { grid-template-columns: 1fr; } }
+        .approval-flow { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 20px; background: #f8f8f8; border-radius: 10px; flex-wrap: wrap; margin: 12px 0; }
+        .approval-step { text-align: center; padding: 8px 12px; background: #fff; border-radius: 8px; border: 1px solid #eee; min-width: 80px; }
+        .approval-step .icon { font-size: 24px; display: block; }
+        .approval-step .label { font-size: 11px; color: #666; font-weight: 600; }
+        .approval-arrow { color: #ccc; font-size: 20px; }
+        .approval-step.active { border-color: #f97316; background: #fef9f4; }
+        .approval-step.approved { border-color: #10b981; background: #f0fdf4; }
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .pricing-card { border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: center; transition: 0.2s; }
+        .pricing-card:hover { border-color: #f97316; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+        .pricing-card .plan { font-size: 20px; font-weight: 700; color: #1a1a1a; }
+        .pricing-card .setup { font-size: 24px; font-weight: 800; color: #f97316; margin: 8px 0; }
+        .pricing-card .monthly { font-size: 16px; color: #666; }
+        .pricing-card .features { list-style: none; padding: 0; margin: 12px 0; font-size: 13px; }
+        .pricing-card .features li { padding: 4px 0; color: #555; }
+        .pricing-card .features li:before { content: '✓ '; color: #10b981; font-weight: 700; }
+        .pricing-card.recommended { border-color: #f97316; background: #fef9f4; }
+        .pricing-card.recommended .setup { color: #e8650a; }
+        @media (max-width: 820px) { .document-container { padding: 30px 24px; } .header { flex-direction: column; gap: 16px; } .header-right { text-align: left; } .toc-grid { grid-template-columns: 1fr 1fr; } .swot-grid { grid-template-columns: 1fr; } .org-row { gap: 16px; } .info-grid { grid-template-columns: 1fr; } .approval-flow { flex-direction: column; } .approval-arrow { transform: rotate(90deg); } .pricing-grid { grid-template-columns: 1fr; } }
         @media (max-width: 480px) { body { padding: 12px; } .document-container { padding: 20px 16px; } .toc-grid { grid-template-columns: 1fr; } .doc-title h1 { font-size: 26px; } .section h2 { font-size: 20px; } }
         @media print { body { background: #fff; padding: 0; } .document-container { box-shadow: none; padding: 40px; border-radius: 0; } .export-bar { display: none; } }
     </style>
@@ -96,7 +115,7 @@
         <div class="header-right">
             <strong>Itesho — A product of Thee Landlord (Pty) Ltd</strong><br />
             Reg: 2019/287364/07<br />
-            <span style="color:#f97316;">●</span> Live on Vercel + Render<br />
+            <span style="color:#f97316;">●</span> Installed Software<br />
             <span class="badge">B-BBEE Level 1</span>
             <span class="badge" style="background:#10b981;">100% Black-Owned</span>
         </div>
@@ -105,8 +124,8 @@
     <!-- TITLE -->
     <div class="doc-title">
         <h1>Business Plan — Itesh<span>ō</span></h1>
-        <div class="sub">Project Control Platform · BOQ · RFQ · Invoice Control</div>
-        <div class="version">📄 V4.0 · June 2025</div>
+        <div class="sub">Installed Project Control Platform · BOQ · RFQ · Invoice Control</div>
+        <div class="version">📄 V4.2 · June 2025</div>
     </div>
 
     <!-- TOC -->
@@ -117,14 +136,14 @@
             <div class="toc-item"><span class="num">2.</span> Company Profile</div>
             <div class="toc-item"><span class="num">3.</span> Vision, Mission &amp; Values</div>
             <div class="toc-item"><span class="num">4.</span> Business Model</div>
-            <div class="toc-item"><span class="num">5.</span> Products &amp; Services</div>
-            <div class="toc-item"><span class="num">6.</span> Market Analysis</div>
-            <div class="toc-item"><span class="num">7.</span> Competitive Advantage</div>
-            <div class="toc-item"><span class="num">8.</span> SWOT Analysis</div>
-            <div class="toc-item"><span class="num">9.</span> Operations Strategy</div>
-            <div class="toc-item"><span class="num">10.</span> Marketing Strategy</div>
-            <div class="toc-item"><span class="num">11.</span> Financial Plan</div>
-            <div class="toc-item"><span class="num">12.</span> Risk &amp; Exit Strategy</div>
+            <div class="toc-item"><span class="num">5.</span> Pricing Structure</div>
+            <div class="toc-item"><span class="num">6.</span> Products &amp; Services</div>
+            <div class="toc-item"><span class="num">7.</span> The Approval Chain</div>
+            <div class="toc-item"><span class="num">8.</span> Market Analysis</div>
+            <div class="toc-item"><span class="num">9.</span> Competitive Advantage</div>
+            <div class="toc-item"><span class="num">10.</span> SWOT Analysis</div>
+            <div class="toc-item"><span class="num">11.</span> Operations Strategy</div>
+            <div class="toc-item"><span class="num">12.</span> Financial Plan</div>
         </div>
     </div>
 
@@ -138,23 +157,26 @@
             <strong>Itesho</strong> is a <strong>project control platform</strong> developed by <strong>Thee Landlord (Pty) Ltd</strong>. The platform is designed to manage <strong>BOQ (Bill of Quantities), RFQs (Request for Quotations), compliance, and invoice control</strong> across multiple industries — with a primary focus on construction, but extending to any project-based environment.
         </p>
         <p>
-            The platform consists of a <strong>React + Vite frontend</strong> deployed on Vercel, and a <strong>Django REST Framework + PostgreSQL backend</strong> deployed on Render, with JWT authentication via <strong>djangorestframework-simplejwt</strong>.
+            Itesho is <strong>installed software</strong> — deployed on the client's own infrastructure (on-premise or private cloud). This provides clients with <strong>full control over their data, security, and customisation</strong>.
         </p>
         <p>
-            The name "Itesho" reflects the platform's South African roots. The system is built with <strong>Rand-based pricing</strong> and local compliance requirements in mind, with a <strong>per-project, per-month pricing model</strong>.
+            The platform consists of a <strong>React + Vite frontend</strong> and a <strong>Django REST Framework + PostgreSQL backend</strong>, with JWT authentication via <strong>djangorestframework-simplejwt</strong>.
+        </p>
+        <p>
+            The name "Itesho" reflects the platform's South African roots. The system is built with <strong>Rand-based pricing</strong> and local compliance requirements in mind, with a <strong>once-off setup fee + monthly per-project pricing</strong>.
         </p>
 
         <div class="highlight-box">
-            <strong>💡 Core Purpose:</strong> Itesho exists to <strong>certify what gets invoiced</strong> — ensuring that only compliant, approved work is billed, reducing payment disputes across all industries.
+            <strong>💡 Core Purpose:</strong> Itesho exists to <strong>certify what gets invoiced</strong> — ensuring that only compliant, <strong>Project Manager-approved</strong> work is billed, reducing payment disputes across all industries.
         </div>
 
         <h3>1.2 Product Overview</h3>
         <ul>
             <li><strong>Product Name:</strong> Itesho</li>
-            <li><strong>Type:</strong> Cloud-based Project Control Platform (SaaS)</li>
+            <li><strong>Type:</strong> Installed Software (On-premise / Private Cloud)</li>
             <li><strong>Industries:</strong> Construction, Infrastructure, Engineering, Facilities Management, Government Tenders</li>
-            <li><strong>Core Modules:</strong> BOQ, RFQ, Compliance Gatekeeper, Daily Logs, PM Approval, Invoicing</li>
-            <li><strong>Pricing Model:</strong> Per project, per month</li>
+            <li><strong>Core Modules:</strong> BOQ, RFQ, Compliance Gatekeeper, Daily Logs, <strong>Project Manager Approval</strong>, Invoicing</li>
+            <li><strong>Pricing Model:</strong> Once-off setup fee + monthly per-project subscription</li>
         </ul>
     </div>
 
@@ -228,14 +250,6 @@
                 </tbody>
             </table>
         </div>
-
-        <h3>2.3 Contact Information</h3>
-        <ul>
-            <li><strong>Email:</strong> bonga@thelandlord.com</li>
-            <li><strong>Cellphone:</strong> 060 422 1452</li>
-            <li><strong>Telephone:</strong> 018 011 3405</li>
-            <li><strong>Address:</strong> 3 Latham Road, Irene Park, Klerksdorp, North West</li>
-        </ul>
     </div>
 
     <!-- ─── SECTION 3 ────────────────────────────────────────────── -->
@@ -245,21 +259,22 @@
 
         <h3>3.1 Vision</h3>
         <p>
-            To be the <strong>leading project control platform</strong> in South Africa, enabling <strong>zero payment disputes</strong> across construction, infrastructure, and government projects.
+            To be the <strong>leading project control platform</strong> in South Africa, enabling <strong>zero payment disputes</strong> across construction, infrastructure, and government projects through <strong>verified Project Manager approval</strong> of all work.
         </p>
 
         <h3>3.2 Mission</h3>
         <p>
-            To <strong>certify what gets invoiced</strong> by providing a platform that ensures <strong>compliance, approval, and accuracy</strong> at every step of the project lifecycle.
+            To <strong>certify what gets invoiced</strong> by providing an installed platform that ensures <strong>compliance, Project Manager approval, and accuracy</strong> at every step of the project lifecycle.
         </p>
 
         <h3>3.3 Goals</h3>
         <h4>3.3.1 Business Start-up Phase (0-6 Months)</h4>
         <ul>
             <li>Complete company registration and compliance ✓</li>
-            <li>Finalise MVP deployment (currently live on Vercel + Render) ✓</li>
+            <li>Finalise MVP deployment ✓</li>
             <li>Onboard first 5 pilot clients</li>
-            <li>Establish initial marketing presence</li>
+            <li>Establish Project Manager approval workflows with pilot clients</li>
+            <li>Establish installation and setup processes</li>
         </ul>
 
         <h4>3.3.2 Business Growth Phase (6-18 Months)</h4>
@@ -267,7 +282,7 @@
             <li>Reach 50+ paying clients</li>
             <li>Implement advanced features (analytics, reporting)</li>
             <li>Build a dedicated sales and support team</li>
-            <li>Achieve R2M+ annual recurring revenue (ARR)</li>
+            <li>Achieve R3M+ annual recurring revenue (ARR)</li>
         </ul>
 
         <h4>3.3.3 Business Mature Phase (18-36 Months)</h4>
@@ -275,16 +290,7 @@
             <li>Reach 200+ paying clients</li>
             <li>Establish Itesho as the industry standard</li>
             <li>Expand into neighbouring African markets</li>
-            <li>Achieve R8M+ ARR</li>
-        </ul>
-
-        <h3>3.4 Values</h3>
-        <ul>
-            <li><strong>Integrity</strong> — We build honest, transparent systems</li>
-            <li><strong>Reliability</strong> — Our platform is available 99.9% of the time</li>
-            <li><strong>Accountability</strong> — We take ownership of outcomes</li>
-            <li><strong>Excellence</strong> — We deliver world-class software</li>
-            <li><strong>Innovation</strong> — We continuously improve</li>
+            <li>Achieve R10M+ ARR</li>
         </ul>
     </div>
 
@@ -295,68 +301,183 @@
 
         <h3>4.1 Revenue Model</h3>
         <p>
-            Itesho uses a <strong>subscription-based (SaaS) revenue model</strong> with <strong>per-project, per-month pricing</strong>:
+            Itesho uses a <strong>hybrid revenue model</strong>:
+        </p>
+        <ul>
+            <li><strong>Once-off Setup Fee:</strong> Covers installation, configuration, training, and data migration</li>
+            <li><strong>Monthly Subscription (per project):</strong> Ongoing access to the platform</li>
+            <li><strong>Annual Maintenance (Optional):</strong> Support, updates, and premium assistance</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>💰 Pricing Model:</strong> Once-off setup fee + monthly per-project subscription.
+        </div>
+    </div>
+
+    <!-- ─── SECTION 5 ────────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 5</div>
+        <h2>Pricing Structure</h2>
+
+        <h3>5.1 Once-off Setup Fees</h3>
+        <p>
+            The setup fee covers the complete installation, configuration, training, and first project setup:
         </p>
 
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan">🌱 Starter</div>
+                <div class="setup">R20,000</div>
+                <div class="monthly">+ R1,500/month per project</div>
+                <ul class="features">
+                    <li>1-3 projects</li>
+                    <li>Up to 5 users</li>
+                    <li>Basic BOQ import</li>
+                    <li>1 day training</li>
+                    <li>Email support</li>
+                </ul>
+            </div>
+            <div class="pricing-card recommended">
+                <div class="plan">📈 Pro</div>
+                <div class="setup">R35,000</div>
+                <div class="monthly">+ R3,500/month per project</div>
+                <ul class="features">
+                    <li>3-10 projects</li>
+                    <li>Up to 15 users</li>
+                    <li>Full BOQ &amp; RFQ</li>
+                    <li>PM approval workflow</li>
+                    <li>2 days training</li>
+                    <li>Priority support</li>
+                    <li><strong style="color:#f97316;">⭐ Most Popular</strong></li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="plan">🏢 Enterprise</div>
+                <div class="setup">R55,000</div>
+                <div class="monthly">+ R5,500+/month per project</div>
+                <ul class="features">
+                    <li>10+ projects</li>
+                    <li>Unlimited users</li>
+                    <li>Full customisation</li>
+                    <li>Multi-level approval</li>
+                    <li>5 days training</li>
+                    <li>24/7 priority support</li>
+                    <li>SLA included</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>5.2 Setup Fee Breakdown (Pro Package - R35,000)</h3>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
-                        <th>Plan</th>
-                        <th>Price (per project, per month)</th>
-                        <th>Target Audience</th>
-                        <th>Features</th>
+                        <th>Service</th>
+                        <th>Hours</th>
+                        <th>Cost</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Starter</strong></td>
-                        <td>R1,500</td>
-                        <td>Small projects, individual contractors</td>
-                        <td>1 project, 3 users, BOQ, RFQ, daily logs</td>
+                        <td>Installation &amp; Deployment</td>
+                        <td>8-12</td>
+                        <td>R6,000</td>
                     </tr>
                     <tr>
-                        <td><strong>Pro</strong></td>
+                        <td>Database Setup &amp; Configuration</td>
+                        <td>4-6</td>
                         <td>R3,500</td>
-                        <td>Medium projects, QS firms, contractors</td>
-                        <td>5 projects, 15 users, gatekeeper, invoicing, submissions</td>
                     </tr>
                     <tr>
-                        <td><strong>Enterprise</strong></td>
-                        <td>R5,500+</td>
-                        <td>Large projects, developers, government tenders</td>
-                        <td>Unlimited projects, custom features, SLA, RFQ management</td>
+                        <td>BOQ Import (first project)</td>
+                        <td>4-6</td>
+                        <td>R3,500</td>
+                    </tr>
+                    <tr>
+                        <td>User Setup (first 5 users)</td>
+                        <td>3-5</td>
+                        <td>R2,500</td>
+                    </tr>
+                    <tr>
+                        <td>Training (2 sessions)</td>
+                        <td>6-8</td>
+                        <td>R5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Configuration &amp; Customisation</td>
+                        <td>6-10</td>
+                        <td>R6,000</td>
+                    </tr>
+                    <tr>
+                        <td>Testing &amp; Quality Assurance</td>
+                        <td>4-6</td>
+                        <td>R3,500</td>
+                    </tr>
+                    <tr>
+                        <td>Documentation &amp; Handover</td>
+                        <td>3-4</td>
+                        <td>R2,500</td>
+                    </tr>
+                    <tr>
+                        <td>Project Management</td>
+                        <td>4-6</td>
+                        <td>R3,500</td>
+                    </tr>
+                    <tr style="font-weight:600; border-top:2px solid #eee;">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>42-63</strong></td>
+                        <td><strong>R36,000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>5.3 Annual Maintenance (Optional)</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Annual Maintenance Fee</th>
+                        <th>Includes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Starter</td>
+                        <td>R3,600/year</td>
+                        <td>Updates, basic support</td>
+                    </tr>
+                    <tr>
+                        <td>Pro</td>
+                        <td>R8,400/year</td>
+                        <td>Updates, priority support, minor customisations</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise</td>
+                        <td>R13,200+/year</td>
+                        <td>Updates, 24/7 support, major customisations, SLA</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="highlight-box">
-            <strong>💰 Pricing Model:</strong> Per project, per month. No hidden fees. Cancel anytime.
+            <strong>📌 Recommendation:</strong> Standard setup fee of <strong>R35,000</strong> for most clients. <strong>R20,000</strong> for small contractors. <strong>R55,000</strong> for enterprise clients.
         </div>
-
-        <h3>4.2 Value Proposition</h3>
-        <ul>
-            <li><strong>Stop disputes before they start</strong> — Compliance gatekeeper ensures only compliant work is submitted</li>
-            <li><strong>Certify what gets invoiced</strong> — PM approval workflow validates quantities before invoicing</li>
-            <li><strong>Auto‑calculated invoices</strong> — No manual entry, no errors</li>
-            <li><strong>Full audit trail</strong> — Every approval is tracked and timestamped</li>
-            <li><strong>RFQ management</strong> — Streamline the procurement process</li>
-            <li><strong>Multi-industry</strong> — Construction, infrastructure, facilities management, government tenders</li>
-        </ul>
     </div>
 
-    <!-- ─── SECTION 5 ────────────────────────────────────────────── -->
+    <!-- ─── SECTION 6 ────────────────────────────────────────────── -->
     <div class="section">
-        <div class="section-number">Section 5</div>
+        <div class="section-number">Section 6</div>
         <h2>Products &amp; Services</h2>
 
-        <h3>5.1 Itesho Platform Overview</h3>
+        <h3>6.1 Itesho Platform Overview</h3>
         <p>
             Itesho is a <strong>project control platform</strong> built specifically for <strong>BOQ tracking, RFQ management, compliance, and invoice control</strong>.
         </p>
 
-        <h4>5.1.1 Core Modules (Based on Live Application)</h4>
+        <h4>6.1.1 Core Modules (Based on Live Application)</h4>
 
         <p><strong>Dashboard:</strong></p>
         <ul>
@@ -406,117 +527,117 @@
             <li>Save Draft and Submit functionality</li>
         </ul>
 
-        <p><strong>Submissions:</strong></p>
+        <p><strong>Submissions (Awaiting Project Manager Approval):</strong></p>
         <ul>
             <li>All daily log submissions from contractors</li>
             <li>Table: Date &amp; Time, Project, Contractor, Work Description, Status, Action</li>
-            <li>Statuses: Approved, Pending</li>
-            <li>Full audit trail of all submissions</li>
+            <li>Statuses: <strong>Pending PM Approval</strong>, Approved, Rejected</li>
+            <li>Full audit trail of all submissions with approver identity</li>
         </ul>
 
         <p><strong>Invoices:</strong></p>
         <ul>
-            <li>Auto-generated from approved Level 1 BOQ quantities</li>
+            <li><strong>Auto-generated from Project Manager-approved Level 1 BOQ quantities</strong></li>
             <li>Total Planned, Claimable, Claimed, Remaining</li>
             <li>Client details, itemised breakdown</li>
             <li>Payment tracking</li>
-        </ul>
-
-        <h4>5.1.2 The Invoice Control Chain</h4>
-        <p>
-            The platform enforces a <strong>4-step approval chain</strong> before an invoice is generated:
-        </p>
-        <ol>
-            <li><strong>Compliance Check</strong> — Gatekeeper verifies all compliance items</li>
-            <li><strong>Daily Log Submission</strong> — Site teams submit actual quantities</li>
-            <li><strong>PM Approval</strong> — Project Manager reviews and approves quantities</li>
-            <li><strong>Invoice Generation</strong> — System multiplies approved qty × rate</li>
-        </ol>
-        <div class="highlight-box">
-            <strong>🔒 The Golden Rule:</strong> No compliance = No daily log = No approved quantities = No invoice.
-        </div>
-
-        <h3>5.2 Technical Architecture</h3>
-        <ul>
-            <li><strong>Frontend:</strong> React + Vite, deployed on Vercel</li>
-            <li><strong>Backend:</strong> Django REST Framework + PostgreSQL, deployed on Render</li>
-            <li><strong>Auth:</strong> JWT (djangorestframework-simplejwt)</li>
-            <li><strong>BOQ Hierarchy:</strong> Section → Subsection → Line Items (levels 1-3)</li>
-            <li><strong>Key Libraries:</strong> django-cors-headers, python-dotenv</li>
-        </ul>
-    </div>
-
-    <!-- ─── SECTION 6 ────────────────────────────────────────────── -->
-    <div class="section">
-        <div class="section-number">Section 6</div>
-        <h2>Market Analysis</h2>
-
-        <h3>6.1 South African Market Opportunity</h3>
-        <ul>
-            <li>Construction contributes <strong>~3% to South Africa's GDP</strong></li>
-            <li>There are over <strong>100,000+ construction companies</strong> registered in South Africa</li>
-            <li>Government tenders worth <strong>billions of Rand</strong> are issued annually</li>
-            <li><strong>15-30% of project value</strong> is lost to payment disputes</li>
-            <li>Most companies still use <strong>Excel spreadsheets</strong> and <strong>WhatsApp</strong> to manage BOQs and RFQs</li>
-        </ul>
-
-        <h3>6.2 Target Market</h3>
-        <ul>
-            <li><strong>Primary:</strong> Construction companies (CIDB grades 1-9)</li>
-            <li><strong>Primary:</strong> Quantity Surveyors and Project Managers</li>
-            <li><strong>Primary:</strong> Government departments and municipalities (tenders)</li>
-            <li><strong>Secondary:</strong> Property developers and engineering firms</li>
-            <li><strong>Secondary:</strong> Facilities management companies</li>
-        </ul>
-
-        <h3>6.3 Market Opportunity</h3>
-        <div class="highlight-box">
-            <strong>📈 Market Gap:</strong> There is currently <strong>no affordable, comprehensive project control platform</strong> with built-in compliance, RFQ management, and invoice control for the South African market. Most companies still use <strong>Excel spreadsheets</strong>, <strong>WhatsApp</strong>, and <strong>paper-based systems</strong>.
-        </div>
-
-        <h3>6.4 Market Trends</h3>
-        <ul>
-            <li><strong>Digital transformation</strong> in construction and government is accelerating</li>
-            <li><strong>Compliance requirements</strong> are becoming more stringent (CIDB, COID, B-BBEE)</li>
-            <li><strong>Payment disputes</strong> are a growing concern for all industries</li>
-            <li><strong>Cloud-based solutions</strong> are replacing on-premise software</li>
-            <li><strong>Government procurement</strong> is moving towards digital platforms</li>
+            <li>Only <strong>PM-approved work</strong> is included in invoices</li>
         </ul>
     </div>
 
     <!-- ─── SECTION 7 ────────────────────────────────────────────── -->
     <div class="section">
         <div class="section-number">Section 7</div>
+        <h2>The <span style="color:#f97316;">Approval Chain</span></h2>
+
+        <p style="font-size:14.5px; color:#333; line-height:1.7; margin-bottom:12px;">
+            Itesho enforces a <strong>4-step approval chain</strong> where <strong>Project Managers (or other authorised managerial roles)</strong> certify all work before it becomes invoiced.
+        </p>
+
+        <div class="approval-flow">
+            <div class="approval-step active">
+                <span class="icon">🔒</span>
+                <span class="label">1. Compliance<br /><span style="font-size:9px; color:#999;">Gatekeeper</span></span>
+            </div>
+            <span class="approval-arrow">→</span>
+            <div class="approval-step">
+                <span class="icon">📋</span>
+                <span class="label">2. Daily Log<br /><span style="font-size:9px; color:#999;">Submitted by Site Team</span></span>
+            </div>
+            <span class="approval-arrow">→</span>
+            <div class="approval-step approved">
+                <span class="icon">✅</span>
+                <span class="label">3. <strong>Project Manager</strong><br /><span style="font-size:9px; color:#999;">Reviews &amp; Approves</span></span>
+            </div>
+            <span class="approval-arrow">→</span>
+            <div class="approval-step approved">
+                <span class="icon">💰</span>
+                <span class="label">4. Invoice<br /><span style="font-size:9px; color:#999;">Auto-Generated</span></span>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>🔒 The Golden Rule:</strong> No compliance = No daily log = No <strong>Project Manager approval</strong> = No invoice.
+        </div>
+
+        <h3>7.1 Who Can Approve?</h3>
+        <ul>
+            <li><strong>Project Manager</strong> — Primary approver for all project work</li>
+            <li><strong>Construction Manager</strong> — Can approve work on behalf of the Project Manager</li>
+            <li><strong>Site Manager</strong> — Can approve daily logs within their delegated authority</li>
+            <li><strong>Quantity Surveyor</strong> — Can approve quantities and rates</li>
+            <li><strong>Any authorised Managerial Role</strong> — Configurable based on client's organisational structure</li>
+        </ul>
+    </div>
+
+    <!-- ─── SECTION 8 ────────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 8</div>
+        <h2>Market Analysis</h2>
+
+        <h3>8.1 South African Market Opportunity</h3>
+        <ul>
+            <li>Construction contributes <strong>~3% to South Africa's GDP</strong></li>
+            <li>There are over <strong>100,000+ construction companies</strong> registered in South Africa</li>
+            <li>Government tenders worth <strong>billions of Rand</strong> are issued annually</li>
+            <li><strong>15-30% of project value</strong> is lost to payment disputes</li>
+            <li>Most companies still use <strong>Excel spreadsheets</strong> and <strong>WhatsApp</strong></li>
+        </ul>
+
+        <h3>8.2 Target Market</h3>
+        <ul>
+            <li><strong>Primary:</strong> Construction companies (CIDB grades 1-9)</li>
+            <li><strong>Primary:</strong> Quantity Surveyors and Project Managers</li>
+            <li><strong>Primary:</strong> Government departments and municipalities</li>
+            <li><strong>Secondary:</strong> Property developers and engineering firms</li>
+        </ul>
+    </div>
+
+    <!-- ─── SECTION 9 ────────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 9</div>
         <h2>Competitive Advantage</h2>
 
-        <h3>7.1 Key Differentiators</h3>
-
-        <h4>7.1.1 The Compliance Gatekeeper</h4>
+        <h4>9.1.1 Project Manager Approval Workflow</h4>
         <p>
-            Itesho <strong>blocks access</strong> to daily logs if compliance is not met. This is a unique feature that protects principal contractors from <strong>uninsured claims</strong> and liability.
+            Itesho <strong>requires Project Manager approval</strong> before any work can be invoiced.
         </p>
 
-        <h4>7.1.2 The Invoice Control Chain</h4>
+        <h4>9.1.2 The Compliance Gatekeeper</h4>
         <p>
-            Itesho <strong>automates</strong> the entire invoice process — from compliance verification → PM approval → invoice generation. Competitors only track BOQs without the integrated approval workflow.
+            Itesho <strong>blocks access</strong> to daily logs if compliance is not met.
         </p>
 
-        <h4>7.1.3 RFQ Management</h4>
+        <h4>9.1.3 Installed Software Advantage</h4>
         <p>
-            Itesho includes <strong>RFQ management</strong> — a critical feature for government tenders and procurement processes that is missing from most competitor platforms.
+            Clients retain <strong>full control</strong> over their data, security, and customisation.
         </p>
 
-        <h4>7.1.4 Built for South Africa</h4>
+        <h4>9.1.4 Built for South Africa</h4>
         <p>
-            Itesho is built <strong>specifically for the South African market</strong> with Rand-based pricing, local compliance requirements (CIDB, COID, B-BBEE), and a deep understanding of the local procurement landscape.
+            Itesho is built <strong>specifically for the South African market</strong> with local compliance requirements (CIDB, COID, B-BBEE).
         </p>
 
-        <h4>7.1.5 Affordable &amp; Accessible</h4>
-        <p>
-            Starting at <strong>R1,500/project/month</strong>, Itesho is affordable for <strong>small to medium contractors</strong> — unlike enterprise solutions that cost R10,000+ per month.
-        </p>
-
-        <h3>7.2 Competitor Analysis</h3>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -524,9 +645,10 @@
                         <th>Competitor</th>
                         <th>BOQ</th>
                         <th>RFQ</th>
-                        <th>Compliance Gatekeeper</th>
+                        <th>Compliance</th>
                         <th>PM Approval</th>
                         <th>Auto-Invoicing</th>
+                        <th>Installed</th>
                         <th>Price</th>
                     </tr>
                 </thead>
@@ -538,7 +660,8 @@
                         <td>✅</td>
                         <td>✅</td>
                         <td>✅</td>
-                        <td>R1,500 - R5,500</td>
+                        <td>✅</td>
+                        <td>R20k-R55k + R1.5k-R5.5k/mo</td>
                     </tr>
                     <tr>
                         <td>BuildSmart</td>
@@ -547,7 +670,8 @@
                         <td>❌</td>
                         <td>❌</td>
                         <td>❌</td>
-                        <td>R8,000+</td>
+                        <td>❌</td>
+                        <td>R8,000+/mo</td>
                     </tr>
                     <tr>
                         <td>Procore</td>
@@ -556,40 +680,29 @@
                         <td>❌</td>
                         <td>✅</td>
                         <td>❌</td>
-                        <td>R12,000+</td>
-                    </tr>
-                    <tr>
-                        <td>Excel/WhatsApp</td>
-                        <td>✅</td>
                         <td>❌</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                        <td>R0 (error-prone)</td>
+                        <td>R12,000+/mo</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- ─── SECTION 8 ────────────────────────────────────────────── -->
+    <!-- ─── SECTION 10 ───────────────────────────────────────────── -->
     <div class="section">
-        <div class="section-number">Section 8</div>
+        <div class="section-number">Section 10</div>
         <h2>SWOT Analysis</h2>
 
         <div class="swot-grid">
             <div class="swot-box swot-strengths">
                 <h4>💪 Strengths</h4>
                 <ul>
-                    <li>Unique compliance gatekeeper feature</li>
-                    <li>Full invoice control chain</li>
-                    <li>Built specifically for the South African market</li>
-                    <li>Affordable per-project pricing model</li>
-                    <li>Modern tech stack (React + Django)</li>
-                    <li>Live deployment on Vercel + Render</li>
-                    <li>Full audit trail</li>
+                    <li>Project Manager approval workflow</li>
+                    <li>Compliance gatekeeper</li>
+                    <li>Installed software — full data control</li>
+                    <li>Affordable setup + monthly model</li>
                     <li>B-BBEE Level 1 · 100% Black-Owned</li>
-                    <li>CIDB registered (1GB, 1ME, 1SG)</li>
+                    <li>CIDB registered</li>
                 </ul>
             </div>
             <div class="swot-box swot-weaknesses">
@@ -598,321 +711,103 @@
                     <li>New business in a competitive market</li>
                     <li>Limited brand awareness</li>
                     <li>Early-stage client base</li>
-                    <li>Limited marketing budget</li>
-                    <li>Solo founder (need to build a team)</li>
                 </ul>
             </div>
             <div class="swot-box swot-opportunities">
                 <h4>🚀 Opportunities</h4>
                 <ul>
                     <li>Growing demand for digital project control</li>
-                    <li>Increasing compliance requirements</li>
-                    <li>Rising concern about payment disputes</li>
                     <li>Government digital procurement push</li>
+                    <li>Rising concern about payment disputes</li>
                     <li>Expansion into other African markets</li>
-                    <li>Partnerships with QS firms and industry bodies</li>
                 </ul>
             </div>
             <div class="swot-box swot-threats">
                 <h4>🔥 Threats</h4>
                 <ul>
                     <li>Established competitors (Procore, BuildSmart)</li>
-                    <li>New entrants in the ConTech space</li>
                     <li>Economic uncertainty</li>
                     <li>Changing compliance regulations</li>
-                    <li>Potential talent acquisition challenges</li>
                 </ul>
             </div>
-        </div>
-    </div>
-
-    <!-- ─── SECTION 9 ────────────────────────────────────────────── -->
-    <div class="section">
-        <div class="section-number">Section 9</div>
-        <h2>Operations Strategy</h2>
-
-        <h3>9.1 The Invoice Control Process</h3>
-        <p>
-            Itesho's core operational process ensures that <strong>only compliant, approved work gets invoiced</strong>:
-        </p>
-        <ol>
-            <li><strong>Compliance Verification:</strong> Gatekeeper checks safety permits, insurance, licences, inductions</li>
-            <li><strong>Daily Log Submission:</strong> Site teams submit actual quantities, photos, and notes</li>
-            <li><strong>PM Review &amp; Approval:</strong> Project Manager certifies the work</li>
-            <li><strong>Invoice Generation:</strong> Auto-calculated from approved quantities × rate</li>
-            <li><strong>Payment Tracking:</strong> Monitor invoices and payments</li>
-        </ol>
-
-        <h3>9.2 Product Development</h3>
-        <ul>
-            <li><strong>MVP Complete:</strong> Core features (dashboard, projects, BOQ, RFQ, daily logs, gatekeeper, invoices) are live</li>
-            <li><strong>Continuous Improvement:</strong> Monthly feature releases based on client feedback</li>
-            <li><strong>Technology:</strong> React + Vite (frontend), Django REST + PostgreSQL (backend)</li>
-            <li><strong>Deployment:</strong> Vercel (frontend), Render (backend)</li>
-        </ul>
-
-        <h3>9.3 Customer Operations</h3>
-        <ul>
-            <li><strong>Onboarding:</strong> 2-hour setup + training for new clients</li>
-            <li><strong>Support:</strong> Email and WhatsApp support during business hours</li>
-            <li><strong>Client Success:</strong> Regular check-ins and quarterly reviews</li>
-        </ul>
-
-        <h3>9.4 Compliance &amp; Accreditation</h3>
-        <ul>
-            <li><strong>CIDB:</strong> 1GB, 1ME, 1SG (Active until 29 April 2027)</li>
-            <li><strong>COID:</strong> 990001587634 (Active until 30 April 2026)</li>
-            <li><strong>B-BBEE:</strong> Level 1, 100% Black-Owned (Valid until 18 Jan 2027)</li>
-            <li><strong>Tax Compliance:</strong> Verified with SARS</li>
-        </ul>
-    </div>
-
-    <!-- ─── SECTION 10 ───────────────────────────────────────────── -->
-    <div class="section">
-        <div class="section-number">Section 10</div>
-        <h2>Marketing Strategy</h2>
-
-        <h3>10.1 Target Channels</h3>
-
-        <h4>10.1.1 Digital Marketing</h4>
-        <ul>
-            <li><strong>Website:</strong> www.itesho.co.za</li>
-            <li><strong>LinkedIn:</strong> Target construction professionals, QS firms, government procurement</li>
-            <li><strong>Google Ads:</strong> Keywords like "BOQ software South Africa", "RFQ management", "project control"</li>
-            <li><strong>Email Marketing:</strong> Targeted outreach to construction companies</li>
-        </ul>
-
-        <h4>10.1.2 Industry Marketing</h4>
-        <ul>
-            <li><strong>CIDB Events:</strong> Attend and present at key events</li>
-            <li><strong>Quantity Surveyor Associations:</strong> Partner with QS bodies</li>
-            <li><strong>Master Builders Associations:</strong> Partner with MBA chapters</li>
-            <li><strong>Government Tender Portals:</strong> List on CSD and other tender platforms</li>
-        </ul>
-
-        <h4>10.1.3 Government &amp; Tender Marketing</h4>
-        <ul>
-            <li><strong>CSD Registration:</strong> MAAA1437675</li>
-            <li><strong>National Treasury:</strong> Registered supplier</li>
-            <li><strong>Provincial Tenders:</strong> North West, Gauteng, and other provinces</li>
-            <li><strong>Municipal Tenders:</strong> City of Matlosana, Rand West City, and others</li>
-        </ul>
-
-        <h3>10.2 Marketing Budget</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Channel</th>
-                        <th>Monthly Budget</th>
-                        <th>Annual Budget</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Google Ads</td>
-                        <td>R3,000</td>
-                        <td>R36,000</td>
-                    </tr>
-                    <tr>
-                        <td>LinkedIn Ads</td>
-                        <td>R2,000</td>
-                        <td>R24,000</td>
-                    </tr>
-                    <tr>
-                        <td>Content Creation</td>
-                        <td>R1,500</td>
-                        <td>R18,000</td>
-                    </tr>
-                    <tr>
-                        <td>Events &amp; Networking</td>
-                        <td>R2,000</td>
-                        <td>R24,000</td>
-                    </tr>
-                    <tr style="font-weight:600; border-top:2px solid #eee;">
-                        <td><strong>Total</strong></td>
-                        <td><strong>R8,500</strong></td>
-                        <td><strong>R102,000</strong></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 
     <!-- ─── SECTION 11 ───────────────────────────────────────────── -->
     <div class="section">
         <div class="section-number">Section 11</div>
+        <h2>Operations Strategy</h2>
+
+        <h3>11.1 The Project Manager Approval Process</h3>
+        <ol>
+            <li><strong>Compliance Verification:</strong> Gatekeeper checks all compliance items</li>
+            <li><strong>Daily Log Submission:</strong> Site teams submit actual quantities</li>
+            <li><strong>Project Manager Review:</strong> PM reviews against site reality</li>
+            <li><strong>PM Approval:</strong> PM certifies the work — quantities are locked</li>
+            <li><strong>Invoice Generation:</strong> Auto-calculated from approved quantities</li>
+        </ol>
+
+        <h3>11.2 Installation &amp; Deployment</h3>
+        <ul>
+            <li><strong>Client Infrastructure:</strong> On-premise or private cloud</li>
+            <li><strong>Supported OS:</strong> Ubuntu 20.04+, Windows Server 2019+</li>
+            <li><strong>Database:</strong> PostgreSQL 13+</li>
+            <li><strong>Setup Time:</strong> 2-5 days depending on complexity</li>
+        </ul>
+    </div>
+
+    <!-- ─── SECTION 12 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 12</div>
         <h2>Financial Plan</h2>
 
-        <h3>11.1 Revenue Projections</h3>
-        <p>
-            Based on the live platform's capability to manage multiple projects, with an average of <strong>R2,500/project/month</strong>.
-        </p>
-
+        <h3>12.1 Revenue Projections (Including Setup Fees)</h3>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
                         <th>Year</th>
-                        <th>Projects</th>
-                        <th>Avg Monthly Revenue</th>
-                        <th>Annual Revenue</th>
-                        <th>Growth</th>
+                        <th>New Clients</th>
+                        <th>Setup Revenue</th>
+                        <th>Monthly Revenue</th>
+                        <th>Total Revenue</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>Year 1</strong></td>
-                        <td>30</td>
-                        <td>R2,500</td>
+                        <td>20</td>
+                        <td>R700,000</td>
                         <td>R900,000</td>
-                        <td>—</td>
+                        <td><strong>R1,600,000</strong></td>
                     </tr>
                     <tr>
                         <td><strong>Year 2</strong></td>
-                        <td>80</td>
-                        <td>R2,750</td>
+                        <td>50</td>
+                        <td>R1,750,000</td>
                         <td>R2,640,000</td>
-                        <td>+193%</td>
+                        <td><strong>R4,390,000</strong></td>
                     </tr>
                     <tr>
                         <td><strong>Year 3</strong></td>
-                        <td>160</td>
-                        <td>R3,000</td>
+                        <td>80</td>
+                        <td>R2,800,000</td>
                         <td>R5,760,000</td>
-                        <td>+118%</td>
+                        <td><strong>R8,560,000</strong></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h3>11.2 Cost Structure</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Expense Category</th>
-                        <th>Monthly (Year 1)</th>
-                        <th>Annual (Year 1)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Infrastructure (Vercel + Render)</td>
-                        <td>R2,000</td>
-                        <td>R24,000</td>
-                    </tr>
-                    <tr>
-                        <td>Marketing</td>
-                        <td>R8,500</td>
-                        <td>R102,000</td>
-                    </tr>
-                    <tr>
-                        <td>Salaries (Founder)</td>
-                        <td>R25,000</td>
-                        <td>R300,000</td>
-                    </tr>
-                    <tr>
-                        <td>Administration</td>
-                        <td>R2,000</td>
-                        <td>R24,000</td>
-                    </tr>
-                    <tr>
-                        <td>Legal &amp; Compliance</td>
-                        <td>R1,500</td>
-                        <td>R18,000</td>
-                    </tr>
-                    <tr style="font-weight:600; border-top:2px solid #eee;">
-                        <td><strong>Total Operating Expenses</strong></td>
-                        <td><strong>R39,000</strong></td>
-                        <td><strong>R468,000</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>11.3 Funding Requirements</h3>
+        <h3>12.2 Funding Requirements</h3>
         <div class="highlight-box">
             <strong>💰 Capital Required:</strong> R500,000<br />
             <strong>Use of Funds:</strong><br />
             • Infrastructure &amp; Development: R150,000<br />
             • Marketing &amp; Sales: R120,000<br />
             • Working Capital: R100,000<br />
-            • Salaries (Founder + 1 hire): R130,000
+            • Salaries: R130,000
         </div>
-    </div>
-
-    <!-- ─── SECTION 12 ───────────────────────────────────────────── -->
-    <div class="section">
-        <div class="section-number">Section 12</div>
-        <h2>Risk &amp; Exit Strategy</h2>
-
-        <h3>12.1 Key Risks</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Risk</th>
-                        <th>Likelihood</th>
-                        <th>Impact</th>
-                        <th>Mitigation Strategy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Competition from established players</td>
-                        <td>Medium</td>
-                        <td>High</td>
-                        <td>Differentiate with unique features (gatekeeper, RFQ, auto-invoicing)</td>
-                    </tr>
-                    <tr>
-                        <td>Slow client adoption</td>
-                        <td>Medium</td>
-                        <td>High</td>
-                        <td>Free trial, case studies, referral program</td>
-                    </tr>
-                    <tr>
-                        <td>Economic uncertainty</td>
-                        <td>Medium</td>
-                        <td>Medium</td>
-                        <td>Affordable pricing model, flexible terms</td>
-                    </tr>
-                    <tr>
-                        <td>Technical challenges</td>
-                        <td>Low</td>
-                        <td>Medium</td>
-                        <td>Modern tech stack, continuous testing</td>
-                    </tr>
-                    <tr>
-                        <td>Regulatory changes</td>
-                        <td>Low</td>
-                        <td>Medium</td>
-                        <td>Stay updated with CIDB, COID, SARS requirements</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>12.2 Exit Strategy</h3>
-        <ul>
-            <li><strong>Acquisition:</strong> Itesho is an attractive acquisition target for larger ConTech companies</li>
-            <li><strong>Strategic Partnership:</strong> Partner with established construction software companies</li>
-            <li><strong>Organic Growth:</strong> Build a sustainable, profitable business with exit in 5-7 years</li>
-            <li><strong>Government Tender Focus:</strong> Position as a preferred digital procurement platform for government</li>
-        </ul>
-
-        <h3>12.3 Investor Return</h3>
-        <p>
-            Based on a valuation of <strong>5x annual recurring revenue (ARR)</strong>, Itesho would be valued at:
-        </p>
-        <ul>
-            <li><strong>Year 1:</strong> R4.5M valuation (5 × R0.9M)</li>
-            <li><strong>Year 2:</strong> R13.2M valuation (5 × R2.64M)</li>
-            <li><strong>Year 3:</strong> R28.8M valuation (5 × R5.76M)</li>
-        </ul>
-        <p>
-            A R500,000 investment at Year 1 would represent ~11% equity. At Year 3 valuation, that would be worth <strong>R3.17M</strong> — a <strong>6.3x return</strong>.
-        </p>
     </div>
 
     <!-- FOOTER -->
@@ -921,7 +816,7 @@
             <span class="confidential">🔒 Confidential</span> — Not for distribution
         </div>
         <div>
-            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 4.0 · June 2025
+            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 4.2 · June 2025
         </div>
     </div>
 
@@ -973,6 +868,7 @@
             .section li { font-size: 14.5px; color: #333; line-height: 1.7; margin-bottom: 4px; }
             .org-box { background: #f8f8f8; border: 2px solid #eee; border-radius: 10px; padding: 12px 24px; text-align: center; display: inline-block; margin: 8px; }
             .org-box.ceo { border-color: #f97316; background: #fef9f4; }
+            .org-box.pm { border-color: #3b82f6; background: #eff6ff; }
             .org-connector { font-size: 24px; color: #ccc; padding: 4px 0; text-align: center; }
             .org-row { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
             .org-chart { display: flex; flex-direction: column; align-items: center; padding: 24px 0; }
@@ -981,6 +877,24 @@
             .info-item { padding: 8px 12px; background: #f8f8f8; border-radius: 6px; }
             .info-item .label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
             .info-item .value { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+            .approval-flow { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 20px; background: #f8f8f8; border-radius: 10px; flex-wrap: wrap; margin: 12px 0; }
+            .approval-step { text-align: center; padding: 8px 12px; background: #fff; border-radius: 8px; border: 1px solid #eee; min-width: 80px; }
+            .approval-step .icon { font-size: 24px; display: block; }
+            .approval-step .label { font-size: 11px; color: #666; font-weight: 600; }
+            .approval-arrow { color: #ccc; font-size: 20px; }
+            .approval-step.active { border-color: #f97316; background: #fef9f4; }
+            .approval-step.approved { border-color: #10b981; background: #f0fdf4; }
+            .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0; }
+            .pricing-card { border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: center; }
+            .pricing-card:hover { border-color: #f97316; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+            .pricing-card .plan { font-size: 20px; font-weight: 700; color: #1a1a1a; }
+            .pricing-card .setup { font-size: 24px; font-weight: 800; color: #f97316; margin: 8px 0; }
+            .pricing-card .monthly { font-size: 16px; color: #666; }
+            .pricing-card .features { list-style: none; padding: 0; margin: 12px 0; font-size: 13px; }
+            .pricing-card .features li { padding: 4px 0; color: #555; }
+            .pricing-card .features li:before { content: '✓ '; color: #10b981; font-weight: 700; }
+            .pricing-card.recommended { border-color: #f97316; background: #fef9f4; }
+            .pricing-card.recommended .setup { color: #e8650a; }
         </style></head><body>${content}</body></html>`;
         const blob = new Blob([fullDoc], { type: 'application/msword' });
         const url = URL.createObjectURL(blob);
