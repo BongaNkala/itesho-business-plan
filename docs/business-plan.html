@@ -90,8 +90,11 @@
         .cert-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 8px 0; }
         .cert-item { background: #f8f8f8; border-radius: 6px; padding: 6px 10px; font-size: 12px; text-align: center; border: 1px solid #eee; }
         .badge-green-sm { display: inline-block; background: #10b981; color: #fff; padding: 1px 8px; border-radius: 100px; font-size: 9px; font-weight: 600; }
+        .approval-schematic { background: #1a1a1a; color: #e0e0e0; padding: 20px 24px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.8; overflow-x: auto; margin: 12px 0; }
+        .approval-schematic .step { color: #f97316; font-weight: 700; }
+        .approval-schematic .arrow { color: #666; }
         @media (max-width: 820px) { .document-container { padding: 30px 24px; } .header { flex-direction: column; gap: 16px; } .header-right { text-align: left; } .toc-grid { grid-template-columns: 1fr 1fr; } .swot-grid { grid-template-columns: 1fr; } .info-grid { grid-template-columns: 1fr; } .approval-flow { flex-direction: column; } .approval-arrow { transform: rotate(90deg); } .pricing-grid { grid-template-columns: 1fr; } .cert-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 480px) { body { padding: 12px; } .document-container { padding: 20px 16px; } .toc-grid { grid-template-columns: 1fr; } .doc-title h1 { font-size: 26px; } .section h2 { font-size: 20px; } .cert-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) { body { padding: 12px; } .document-container { padding: 20px 16px; } .toc-grid { grid-template-columns: 1fr; } .doc-title h1 { font-size: 26px; } .section h2 { font-size: 20px; } .cert-grid { grid-template-columns: 1fr; } .approval-schematic { font-size: 10px; padding: 12px 16px; } }
         @media print { body { background: #fff; padding: 0; } .document-container { box-shadow: none; padding: 40px; border-radius: 0; } .export-bar { display: none; } }
     </style>
 </head>
@@ -126,12 +129,12 @@
     <div class="doc-title">
         <h1>Complete Business Plan — Itesh<span>ō</span></h1>
         <div class="sub">Cloud-Based Project Control Platform · BOQ · RFQ · Invoice Control</div>
-        <div class="version">📄 V5.1 · June 2025</div>
+        <div class="version">📄 V6.0 · June 2025</div>
     </div>
 
     <!-- TOC -->
     <div class="toc">
-        <h3>📑 Table of Contents</h3>
+        <h3>📑 Full Table of Contents</h3>
         <div class="toc-grid">
             <div class="toc-item"><span class="num">1.</span> Executive Summary</div>
             <div class="toc-item"><span class="num">2.</span> Company &amp; Founder Profile</div>
@@ -148,6 +151,12 @@
             <div class="toc-item"><span class="num">13.</span> Financial Projections</div>
             <div class="toc-item"><span class="num">14.</span> Funding Requirements &amp; Returns</div>
             <div class="toc-item"><span class="num">15.</span> Exit Strategy</div>
+            <div class="toc-item"><span class="num">16.</span> Legal &amp; Compliance</div>
+            <div class="toc-item"><span class="num">17.</span> Operations &amp; Infrastructure</div>
+            <div class="toc-item"><span class="num">18.</span> Customer Success &amp; Retention</div>
+            <div class="toc-item"><span class="num">19.</span> Key Performance Indicators</div>
+            <div class="toc-item"><span class="num">20.</span> Implementation Timeline</div>
+            <div class="toc-item"><span class="num">21.</span> Appendix &amp; Supporting Documents</div>
         </div>
     </div>
 
@@ -163,49 +172,110 @@
         <h3>1.1 The Problem</h3>
         <ul>
             <li><strong>100,000+ construction companies</strong> in South Africa still manage BOQs with Excel and WhatsApp</li>
-            <li><strong>15-30% of project value</strong> is lost to payment disputes</li>
-            <li><strong>No compliance verification</strong> gate before work is submitted</li>
-            <li><strong>No structured audit trail</strong> for who approved what and when</li>
-            <li><strong>Manual invoice calculations</strong> create errors, delays, and disputes</li>
+            <li><strong>15-30% of project value</strong> is lost to payment disputes, delays, and manual invoice errors</li>
+            <li><strong>No compliance verification</strong> gate before work is submitted (safety files, insurance, permits missing)</li>
+            <li><strong>No structured audit trail</strong> for who approved what, when, and why</li>
+            <li><strong>Manual invoice calculations</strong> create errors, disputes, and payment delays</li>
+            <li>Trust deficit between contractors and project managers leading to disputes</li>
+            <li>Payment disputes delay project cash flow, affecting small contractors disproportionately</li>
         </ul>
 
         <h3>1.2 The Solution</h3>
         <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>Feature</th><th>What It Does</th></tr>
+                    <tr><th>Feature</th><th>What It Does</th><th>Impact</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>🔒 Compliance Gatekeeper</td><td>Blocks access to daily logs until all compliance items (safety files, insurance, permits) are verified</td></tr>
-                    <tr><td>✅ Project Manager Approval</td><td>Every quantity must be approved by the PM before it can be invoiced</td></tr>
-                    <tr><td>💰 Auto-Invoicing</td><td>Approved quantity × Rate = Invoice. No manual calculations, no disputes</td></tr>
-                    <tr><td>📋 Full Audit Trail</td><td>Every approval timestamped with approver identity — who approved what, when</td></tr>
-                    <tr><td>☁️ Cloud-Native + Desktop</td><td>SaaS access anywhere plus offline desktop version for data sovereignty</td></tr>
+                    <tr><td>🔒 Compliance Gatekeeper</td><td>Blocks access to daily logs until all compliance items (safety files, insurance, permits, inductions) are verified</td><td>No non-compliant work enters the system</td></tr>
+                    <tr><td>✅ Project Manager Approval</td><td>Every quantity/rate must be approved by the PM before it can be invoiced</td><td>Work is certified as complete and accurate</td></tr>
+                    <tr><td>💰 Auto-Invoicing</td><td>Approved quantity × Rate = Invoice. No manual calculations</td><td>Invoices generated in 5 mins, zero calculation errors</td></tr>
+                    <tr><td>📋 Full Audit Trail</td><td>Every approval timestamped with approver identity — who approved what, when</td><td>Disputes resolved in minutes, not months</td></tr>
+                    <tr><td>☁️ Cloud-Native + Desktop</td><td>SaaS access anywhere plus offline desktop version for data sovereignty</td><td>Works online and offline; complies with data residency needs</td></tr>
+                    <tr><td>📊 Real-Time Visibility</td><td>Dashboard shows projects, budget, spend, approvals pending</td><td>Project managers and accountants have instant visibility</td></tr>
+                    <tr><td>🔗 Integration-Ready</td><td>APIs for Sage, Xero, QuickBooks, Excel imports</td><td>Fits into existing workflows</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <h3>1.3 Traction &amp; Validation</h3>
-        <ul>
-            <li>✅ <strong>7+ modules live</strong> — Dashboard, Projects, BOQ, RFQ, Gatekeeper, Daily Logs, Invoices</li>
-            <li>✅ <strong>Deployed &amp; operational</strong> — Vercel (frontend), Render (backend), PostgreSQL</li>
-            <li>✅ <strong>B-BBEE Level 1</strong> · 100% Black-Owned · CIDB Registered (1GB · 1ME · 1SG)</li>
-            <li>✅ <strong>Founder-built</strong> — 15+ years institutional knowledge across banking, telecoms, higher education, aviation, and construction. Certified in Software Development, Cloud Computing, Cybersecurity, Data Analytics, Construction Management (UCT)</li>
-        </ul>
-
-        <h3>1.4 Financial Highlights</h3>
+        <h3>1.3 Why Itesho Wins</h3>
         <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                    <tr><th>Differentiator</th><th>Itesho</th><th>BuildSmart</th><th>Procore</th><th>Excel</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Paying Projects</td><td>25</td><td>70</td><td>150</td></tr>
-                    <tr><td>Annual Recurring Revenue</td><td>R750,000</td><td>R2.1M</td><td>R5.4M</td></tr>
-                    <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td></tr>
-                    <tr><td>Operating Expenses</td><td>R570,000</td><td>R780,000</td><td>R1.1M</td></tr>
-                    <tr><td>Net Income</td><td>R180,000</td><td>R1.32M</td><td>R4.3M</td></tr>
-                    <tr><td>Break-even</td><td>Month 14</td><td>—</td><td>—</td></tr>
+                    <tr><td>Compliance Gatekeeper</td><td>✅ Only one</td><td>❌</td><td>❌</td><td>❌</td></tr>
+                    <tr><td>PM Approval before Invoice</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+                    <tr><td>Auto-Invoicing</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+                    <tr><td>RFQ Management</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+                    <tr><td>Desktop/Offline</td><td>✅</td><td>❌</td><td>❌</td><td>✅ (all stored locally)</td></tr>
+                    <tr><td>Price (monthly)</td><td><strong>R1,500-5,500</strong></td><td>R8,000+</td><td>R12,000+</td><td>R0 (but costs time)</td></tr>
+                    <tr><td>Built for SA</td><td>✅ CIDB, B-BBEE</td><td>Partial</td><td>Minimal</td><td>No</td></tr>
+                    <tr><td>Audit Trail</td><td>✅ Full</td><td>Partial</td><td>Partial</td><td>❌</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.4 Traction &amp; Validation</h3>
+        <p><strong>Product Status:</strong></p>
+        <ul>
+            <li>✅ <strong>7+ modules live and operational</strong> — Dashboard, Projects, BOQ, RFQ, Gatekeeper, Daily Logs, Submissions, Invoices</li>
+            <li>✅ <strong>Deployed on production infrastructure</strong> — Vercel (frontend), Render (backend), PostgreSQL (database)</li>
+            <li>✅ <strong>98% platform performance</strong> — Uptime tracking operational</li>
+            <li>✅ <strong>Authentication secured</strong> — JWT tokens, industry-standard encryption</li>
+        </ul>
+        <p><strong>Company Status:</strong></p>
+        <ul>
+            <li>✅ <strong>B-BBEE Level 1 verified</strong> · 100% Black-Owned</li>
+            <li>✅ <strong>CIDB Registered</strong> — Grades: 1GB (General Building), 1ME (Mechanical), 1SG (Steel &amp; General)</li>
+            <li>✅ <strong>VAT registered</strong> — R4440317099</li>
+            <li>✅ <strong>CSD Supplier</strong> — MAAA1437675 (eligible for government procurement)</li>
+            <li>✅ <strong>Bank account established</strong> — FNB, ready to process payments</li>
+        </ul>
+        <p><strong>Founder Credentials:</strong></p>
+        <ul>
+            <li><strong>Siyabonga Nkala</strong> — 15+ years institutional knowledge</li>
+            <li><strong>Domain Expertise:</strong> BABA Plant (Pty) Ltd — Procurement, invoicing, compliance, equipment tracking; MXN Construction (CIDB Level 9) — Records, compliance, operations, NARS-compliant record keeping; UNISA — High-volume records management, database systems</li>
+            <li><strong>Technical Certifications:</strong> Software Development (IKAMVA), Cloud Computing (IKAMVA), Cybersecurity (IKAMVA), Data Analytics (IKAMVA), Data Science (WQU)</li>
+            <li><strong>Industry Certifications:</strong> Construction Management (UCT), Project Management (CURSA), Operations Management (NSG), Strategic HRM (NSG)</li>
+        </ul>
+
+        <div class="highlight-box green">
+            <strong>⚡ Rare combination:</strong> Construction domain expertise + full-stack technical capability. Founder understands the problem AND can build the solution.
+        </div>
+
+        <h3>1.5 Financial Highlights</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 5</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Paying Projects</td><td>25</td><td>70</td><td>150</td><td>300+</td></tr>
+                    <tr><td>Annual Revenue</td><td>R750,000</td><td>R2.31M</td><td>R5.4M</td><td>R12M+</td></tr>
+                    <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td><td>85%</td></tr>
+                    <tr><td>Operating Expenses</td><td>R570,000</td><td>R780,000</td><td>R1.1M</td><td>R2M</td></tr>
+                    <tr><td>Net Income</td><td>R180,000</td><td>R1.53M</td><td>R4.3M</td><td>R10M+</td></tr>
+                    <tr><td>Break-even</td><td>Month 14</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>Cash Runway (R500k fund)</td><td>14 months</td><td>—</td><td>—</td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.6 Funding Ask &amp; Return</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Item</th><th>Amount</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Funding Required</td><td><strong>R500,000</strong></td></tr>
+                    <tr><td>Equity Offered</td><td>10-15% (depending on valuation)</td></tr>
+                    <tr><td>Use of Funds</td><td>Development (30%), Marketing (30%), Working Capital (20%), Salaries (20%)</td></tr>
+                    <tr><td>Expected Payback</td><td>Investment worth R1.5M-R3.5M by Year 3 (3-7x return)</td></tr>
+                    <tr><td>Break-even</td><td>Month 14</td></tr>
+                    <tr><td>Path to Exit</td><td>Acquisition by Procore, BuildSmart, or large contractor (Year 5-7)</td></tr>
                 </tbody>
             </table>
         </div>
@@ -216,53 +286,109 @@
         <div class="section-number">Section 2</div>
         <h2>Company &amp; <span class="accent">Founder Profile</span></h2>
 
-        <h3>2.1 Company Details</h3>
+        <h3>2.1 Legal Company Details</h3>
         <div class="info-grid">
-            <div class="info-item"><div class="label">Company Name</div><div class="value">Thee Landlord (Pty) Ltd</div></div>
-            <div class="info-item"><div class="label">Trading Name</div><div class="value">ITesho</div></div>
-            <div class="info-item"><div class="label">Registration</div><div class="value">2019/287364/07</div></div>
-            <div class="info-item"><div class="label">B-BBEE</div><div class="value">Level 1 · 100% Black-Owned</div></div>
-            <div class="info-item"><div class="label">CIDB</div><div class="value">1GB · 1ME · 1SG</div></div>
-            <div class="info-item"><div class="label">VAT</div><div class="value">4440317099</div></div>
-            <div class="info-item"><div class="label">CSD Supplier</div><div class="value">MAAA1437675</div></div>
-            <div class="info-item"><div class="label">Bank</div><div class="value">FNB · Branch 250655 · Acc 63068899435</div></div>
+            <div class="info-item"><div class="label">Legal Name</div><div class="value">Thee Landlord (Pty) Ltd</div></div>
+            <div class="info-item"><div class="label">Trading Name</div><div class="value">ITesho / Iteshō</div></div>
+            <div class="info-item"><div class="label">Registration Number</div><div class="value">2019/287364/07</div></div>
+            <div class="info-item"><div class="label">Date of Registration</div><div class="value">2019</div></div>
+            <div class="info-item"><div class="label">Company Status</div><div class="value">Active, in good standing</div></div>
+            <div class="info-item"><div class="label">Directors/Owners</div><div class="value">Siyabonga Nkala (100%, Active)</div></div>
         </div>
 
-        <h3>2.2 Founder: Siyabonga Nkala</h3>
+        <h3>2.2 B-BBEE &amp; Compliance Status</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Item</th><th>Detail</th><th>Evidence</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>B-BBEE Level</td><td>Level 1 (highest)</td><td>Verified</td></tr>
+                    <tr><td>Ownership</td><td>100% Black-Owned</td><td>Siyabonga Nkala ID: 8809195304080</td></tr>
+                    <tr><td>CIDB Registration</td><td>Yes — Grades 1GB, 1ME, 1SG</td><td>Active with CIDB</td></tr>
+                    <tr><td>VAT Registration</td><td>R4440317099</td><td>Active with SARS</td></tr>
+                    <tr><td>CSD Supplier Number</td><td>MAAA1437675</td><td>Registered for government procurement</td></tr>
+                    <tr><td>Income Tax Number</td><td>9107659246</td><td>Active with SARS</td></tr>
+                    <tr><td>POPIA Compliance</td><td>In progress (Phase 2)</td><td>Data protection impact assessment scheduled</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2.3 Bank &amp; Financial Details</h3>
+        <div class="info-grid">
+            <div class="info-item"><div class="label">Bank</div><div class="value">FNB (First National Bank)</div></div>
+            <div class="info-item"><div class="label">Branch Code</div><div class="value">250655</div></div>
+            <div class="info-item"><div class="label">Account Number</div><div class="value">63068899435</div></div>
+            <div class="info-item"><div class="label">Account Type</div><div class="value">Business Cheque Account</div></div>
+            <div class="info-item"><div class="label">Status</div><div class="value">Active</div></div>
+        </div>
+
+        <h3>2.4 Founder Profile: Siyabonga Nkala</h3>
 
         <div class="highlight-box blue">
             <strong>👤 15+ years institutional knowledge</strong> across banking, telecommunications, higher education, aviation, and construction administration.
         </div>
 
-        <h4>2.2.1 Domain Experience</h4>
+        <h4>Career History</h4>
         <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>Role</th><th>Organisation</th><th>Key Responsibilities</th></tr>
+                    <tr><th>Role</th><th>Organisation</th><th>Key Responsibilities</th><th>Relevance to Itesho</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Administrative &amp; Operations Support</td><td>BABA Plant (Pty) Ltd</td><td>Procurement records, invoices, supplier documentation, equipment tracking, POPIA/PAIA compliance</td></tr>
-                    <tr><td>Administrative &amp; HR Support</td><td>MXN Construction (CIDB Level 9)</td><td>Employee records, attendance registers, report writing, NARS-compliant record keeping</td></tr>
-                    <tr><td>Assistant RPL Coordinator</td><td>UNISA</td><td>High-volume records, correspondence, database management — Faculty of Law</td></tr>
+                    <tr>
+                        <td><strong>Administrative &amp; Operations Support</strong></td>
+                        <td>BABA Plant (Pty) Ltd</td>
+                        <td>Procurement records, invoices, supplier documentation, equipment tracking, POPIA/PAIA compliance</td>
+                        <td>Direct experience with compliance gatekeeping and records verification</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Human Resources &amp; Administrative Support</strong></td>
+                        <td>MXN Construction (CIDB Level 9)</td>
+                        <td>Employee records, attendance registers, report writing, NARS-compliant record keeping, contractor onboarding</td>
+                        <td>Deep understanding of construction workflows, CIDB compliance, project structure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Records &amp; Database Management</strong></td>
+                        <td>UNISA (Faculty of Law)</td>
+                        <td>High-volume records management (100s of student files), correspondence tracking, database management, compliance</td>
+                        <td>Experience managing complex, multi-stakeholder data systems at scale</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
 
-        <h4>2.2.2 Certifications</h4>
-        <div class="cert-grid">
-            <div class="cert-item">🎓 Construction Management — UCT</div>
-            <div class="cert-item">📋 Project Management — CURSA</div>
-            <div class="cert-item">💻 Software Development — IKAMVA</div>
-            <div class="cert-item">☁️ Cloud Computing — IKAMVA</div>
-            <div class="cert-item">🔒 Cybersecurity — IKAMVA</div>
-            <div class="cert-item">📊 Data Analytics — IKAMVA</div>
-            <div class="cert-item">📋 Data Science — WQU</div>
-            <div class="cert-item">📚 Operations Management — NSG</div>
-            <div class="cert-item">📚 Strategic HRM — NSG</div>
+        <h4>Technical Expertise</h4>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Domain</th><th>Certification</th><th>Skills</th><th>Application</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Software Development</strong></td><td>IKAMVA</td><td>React, Vite, Python, Django, PostgreSQL, Git, CI/CD</td><td>Built entire Itesho platform from concept to production</td></tr>
+                    <tr><td><strong>Cloud Computing</strong></td><td>IKAMVA</td><td>Vercel, Render, PostgreSQL cloud, serverless, scaling</td><td>All Itesho infrastructure deployed on cloud platforms</td></tr>
+                    <tr><td><strong>Cybersecurity</strong></td><td>IKAMVA</td><td>JWT auth, data encryption, secure API design, POPIA compliance</td><td>Itesho secured against common vulnerabilities</td></tr>
+                    <tr><td><strong>Data Analytics</strong></td><td>IKAMVA, WQU</td><td>Data interpretation, visualization, trend analysis, SQL</td><td>Building analytics dashboard for Phase 4</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Industry Expertise</h4>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Domain</th><th>Certification</th><th>Topics Covered</th><th>Application</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Construction Management</strong></td><td>UCT</td><td>Project lifecycle, budget/cost control, risk management, H&S, CIDB compliance, contractor management</td><td>Deep understanding of construction workflows that inform Itesho's design</td></tr>
+                    <tr><td><strong>Project Management</strong></td><td>CURSA</td><td>Planning, scheduling, stakeholder management, approval workflows, change control</td><td>PM approval workflows built on industry-standard practices</td></tr>
+                    <tr><td><strong>Operations &amp; HRM</strong></td><td>NSG</td><td>Business operations, process design, HR strategy, performance management, compliance</td><td>Building sustainable operations and company culture as Itesho scales</td></tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="highlight-box green">
-            <strong>⚡ Key Strength:</strong> Rare combination of construction domain expertise AND technical development capability. Founder understands the problem AND can build the solution.
+            <strong>🎯 Founder-market fit is as important as product-market fit.</strong> Siyabonga has both.
         </div>
     </div>
 
@@ -271,13 +397,13 @@
         <div class="section-number">Section 3</div>
         <h2>Vision, Mission &amp; <span class="accent">Values</span></h2>
 
-        <h3>3.1 Vision</h3>
+        <h3>3.1 Vision Statement</h3>
         <p>To be the leading project control platform in South Africa, enabling <strong>zero payment disputes</strong> across construction, infrastructure, and government projects through verified Project Manager approval of all work.</p>
 
-        <h3>3.2 Mission</h3>
+        <h3>3.2 Mission Statement</h3>
         <p>To <strong>certify what gets invoiced</strong> by providing a platform that enforces compliance, requires Project Manager approval, and ensures accuracy at every step of the project lifecycle.</p>
 
-        <h3>3.3 Strategic Goals</h3>
+        <h3>3.3 Strategic Goals (2025-2030)</h3>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -294,11 +420,11 @@
 
         <h3>3.4 Core Values</h3>
         <ul>
-            <li><strong>Integrity</strong> — Transparent, auditable systems. What's approved is what gets paid</li>
-            <li><strong>Reliability</strong> — 99.9% uptime SLA. Construction doesn't stop, neither do we</li>
-            <li><strong>Accountability</strong> — Full audit trails with identity verification on every action</li>
-            <li><strong>Excellence</strong> — World-class software built for African conditions</li>
-            <li><strong>Innovation</strong> — Continuous improvement informed by industry feedback</li>
+            <li><strong>🔒 Integrity</strong> — Transparent, auditable systems. What's approved is what gets paid.</li>
+            <li><strong>🛡️ Reliability</strong> — 99.9% uptime SLA. Construction doesn't stop, neither do we.</li>
+            <li><strong>✅ Accountability</strong> — Someone is always responsible. Every action is tracked.</li>
+            <li><strong>🏆 Excellence</strong> — World-class software built for African conditions.</li>
+            <li><strong>🚀 Innovation</strong> — Continuous improvement informed by industry feedback.</li>
         </ul>
     </div>
 
@@ -307,27 +433,97 @@
         <div class="section-number">Section 4</div>
         <h2>Products &amp; <span class="accent">Services</span></h2>
 
-        <h3>4.1 Platform Overview</h3>
-        <p>Itesho is a cloud-based project control platform with a desktop version for offline access. Built for construction but applicable to any project-based environment requiring compliance, BOQ tracking, and invoice control.</p>
+        <h3>4.1 Platform Overview &amp; Positioning</h3>
+        <p>Itesho is a cloud-based project control platform designed specifically for construction, infrastructure, and project-based industries. It solves the payment dispute problem by ensuring <strong>compliance → daily logs → PM approval → invoicing</strong> as an unbreakable chain.</p>
 
         <h3>4.2 Core Modules (Live as of June 2025)</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Module</th><th>Function</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>📊 Dashboard</td><td>System health (98% performance), active projects, budgets, pending approvals</td></tr>
-                    <tr><td>📁 Projects</td><td>Create/manage projects per client, BOQ hierarchy, budget tracking</td></tr>
-                    <tr><td>🔒 Compliance Gatekeeper</td><td>Safety files, insurance, permits, inductions. Blocks access until verified</td></tr>
-                    <tr><td>📦 RFQ Management</td><td>Create RFQs, compare supplier quotes, award contracts</td></tr>
-                    <tr><td>📐 BOQ (Bill of Quantities)</td><td>3-level hierarchy: Section → Subsection → Line Items. Planned vs Actual tracking</td></tr>
-                    <tr><td>📝 Daily Logs</td><td>Site capture: weather, manpower, equipment, work done, photos</td></tr>
-                    <tr><td>✅ Submissions</td><td>PM approval workflow: pending → approved → invoiced. Full audit trail</td></tr>
-                    <tr><td>💰 Invoices</td><td>Auto-generated from PM-approved quantities. No manual calculations</td></tr>
-                </tbody>
-            </table>
+
+        <p><strong>📊 Module 1: Dashboard</strong> — Single-screen visibility into all projects and approvals</p>
+        <ul>
+            <li>System status: Performance metrics, uptime, active projects</li>
+            <li>Portfolio overview: Total projects, overall progress, total budget, pending approvals</li>
+            <li>Project cards: Quick view of each project's status, budget, spend, pending items</li>
+            <li>Alerts: Compliance expirations, overdue approvals, budget warnings</li>
+            <li>Quick actions: Create new project, generate invoice, approve daily log</li>
+        </ul>
+        <p><em>Business Impact: PM can manage portfolio from phone while on site. Fewer follow-up calls needed.</em></p>
+
+        <p><strong>📁 Module 2: Projects</strong> — Create and manage individual projects with BOQ hierarchy</p>
+        <ul>
+            <li>Create new project with budget, timeline, location</li>
+            <li>Assign contractors, sub-contractors, project team</li>
+            <li>Manage project details: scope, start/end dates, stakeholders</li>
+            <li>View all projects in a list with status indicators</li>
+            <li>Archive completed projects</li>
+        </ul>
+        <p><em>Business Impact: Single source of truth for project setup. No duplicate Excel files.</em></p>
+
+        <p><strong>🔒 Module 3: Compliance Gatekeeper</strong> — Enforce compliance before work can be submitted</p>
+        <ul>
+            <li>Compliance checklist per project: Safety file, insurance certificates, permits, inductions, licenses</li>
+            <li>Document upload with version control</li>
+            <li>Expiry date tracking with automatic renewal alerts</li>
+            <li>Access control: Blocks access to daily logs if compliance incomplete</li>
+            <li>Approval workflow: FM or PM must approve each compliance item</li>
+            <li>Audit trail: Who approved what, when</li>
+        </ul>
+        <p><strong>Compliance Items Tracked:</strong> Safety certifications (SAMTRAC, H&S representative), Insurance (Liability, Workman's Comp, Professional Indemnity), CIDB grading proof, Worker inductions, Environmental permits, Statutory licenses</p>
+        <p><em>Business Impact: No more "we didn't know the contractor wasn't insured" excuses. Compliance is verified before work starts.</em></p>
+
+        <p><strong>📦 Module 4: RFQ (Request for Quotation) Management</strong> — Create, distribute, and evaluate supplier quotes</p>
+        <ul>
+            <li>Create RFQ with specifications and requirements</li>
+            <li>Distribute to multiple suppliers</li>
+            <li>Track responses and deadlines</li>
+            <li>Compare quotations side-by-side</li>
+            <li>Award contracts to selected supplier</li>
+            <li>Link awarded RFQ to BOQ line items</li>
+            <li>Supplier performance tracking</li>
+        </ul>
+        <p><em>Business Impact: Transparent procurement. Faster quote turnaround. Audit trail for compliance audits.</em></p>
+
+        <p><strong>📐 Module 5: Bill of Quantities (BOQ)</strong> — Track all work items, quantities, rates, and costs</p>
+        <ul>
+            <li>Structure: Level 1 Sections → Level 2 Subsections → Level 3 Line Items</li>
+            <li>Fields per Line Item: Item ID, Description, Unit, Planned Quantity, Rate, Approved Quantity (only after PM approval), Total Cost, Status</li>
+            <li>Features: Expand/collapse sections, real-time progress tracking, budget tracking, cost breakdown, search/filter, export to Excel/PDF, version history</li>
+        </ul>
+        <p><em>Business Impact: Single source of truth for quantities. No disputes over "but I thought we agreed on 500?"</em></p>
+
+        <p><strong>📝 Module 6: Daily Logs</strong> — Site teams capture daily progress, resources, and photos</p>
+        <ul>
+            <li>Select project and log date</li>
+            <li>Tabs: Work (quantities done), Manpower (workers, hours), Equipment (on-site, hours), Weather, Safety (incidents, near-misses), Quality (issues), Delays, Photos (with timestamp and location)</li>
+            <li>Save draft, submit for approval</li>
+            <li>Timestamp on submission, contractor name auto-captured</li>
+        </ul>
+        <p><em>Business Impact: Real-time visibility of what happened on site. Photos prove work was done. Disputes resolved with hard evidence.</em></p>
+
+        <p><strong>✅ Module 7: Submissions (Approval Workflow)</strong> — Project Manager reviews and approves daily logs before invoicing</p>
+        <ul>
+            <li>Table of all submitted daily logs: Date, Contractor, Work Description, Quantities, Status</li>
+            <li>Filter by status: Pending, Approved, Rejected</li>
+            <li>One-click approval or rejection with comment field for feedback</li>
+            <li>Batch approval, notification to contractor if rejected, resubmission workflow</li>
+            <li>Statuses: 📋 Pending PM Approval → ✅ Approved → ❌ Rejected</li>
+        </ul>
+        <p><em>Business Impact: PM approves once, dispute-free. Quantities are locked. Invoicing is automatic.</em></p>
+
+        <p><strong>💰 Module 8: Invoices</strong> — Auto-generate invoices from PM-approved quantities</p>
+        <ul>
+            <li>Auto-generated from PM-approved daily logs</li>
+            <li>Grouped by billing period (weekly, bi-weekly, monthly)</li>
+            <li>Invoice line items: BOQ item, approved quantity, rate, total</li>
+            <li>Client details, invoice number, date, due date</li>
+            <li>Total claimable, total claimed so far, remaining balance</li>
+            <li>Status: Draft, Submitted, Paid, Overdue</li>
+            <li>Export to PDF, payment tracking</li>
+        </ul>
+        <p><strong>Calculation Logic:</strong></p>
+        <div class="highlight-box">
+            <code>Invoice Amount = Sum of (Approved Quantity × Rate) for all approved items in billing period</code>
         </div>
+        <p><em>Business Impact: Invoices ready in 5 minutes. No disputes. Payment faster.</em></p>
 
         <h3>4.3 Technology Stack</h3>
         <div class="table-wrap">
@@ -338,20 +534,13 @@
                 <tbody>
                     <tr><td>Frontend</td><td>React + Vite</td><td>Vercel</td></tr>
                     <tr><td>Backend</td><td>Django REST Framework</td><td>Render</td></tr>
-                    <tr><td>Database</td><td>PostgreSQL</td><td>Render / Supabase</td></tr>
+                    <tr><td>Database</td><td>PostgreSQL 13+</td><td>Render / Supabase</td></tr>
                     <tr><td>Authentication</td><td>JWT (djangorestframework-simplejwt)</td><td>—</td></tr>
                     <tr><td>Desktop</td><td>Electron wrapper (planned Q1 2026)</td><td>—</td></tr>
+                    <tr><td>Infrastructure</td><td>Git, GitHub Actions, SSL/TLS, CDN</td><td>—</td></tr>
                 </tbody>
             </table>
         </div>
-
-        <h3>4.4 Desktop Version (Roadmap: Q1 2026)</h3>
-        <ul>
-            <li>Electron wrapper for <strong>Windows, macOS, Linux</strong></li>
-            <li><strong>Full offline functionality</strong> with automatic sync when online</li>
-            <li><strong>Data sovereignty</strong> for government and enterprise clients</li>
-            <li>One-time license: <strong>R5,000/seat</strong> + R1,500/year maintenance</li>
-        </ul>
     </div>
 
     <!-- ─── SECTION 5 ────────────────────────────────────────────── -->
@@ -359,58 +548,72 @@
         <div class="section-number">Section 5</div>
         <h2>The <span class="accent">Approval Chain</span></h2>
 
-        <p>Itesho enforces a <strong>4-step approval chain</strong> where Project Managers must certify all work before it becomes invoiceable.</p>
+        <div class="approval-schematic">
+┌─────────────────────────────────────────────────────────────────────┐
+│                         ITESHO APPROVAL CHAIN                        │
+└─────────────────────────────────────────────────────────────────────┘
 
-        <div class="approval-flow">
-            <div class="approval-step active">
-                <span class="icon">🔒</span>
-                <span class="label">Step 1<br /><span style="font-size:9px; color:#999;">Compliance Gatekeeper</span></span>
-            </div>
-            <span class="approval-arrow">→</span>
-            <div class="approval-step">
-                <span class="icon">📋</span>
-                <span class="label">Step 2<br /><span style="font-size:9px; color:#999;">Daily Log Submitted</span></span>
-            </div>
-            <span class="approval-arrow">→</span>
-            <div class="approval-step approved">
-                <span class="icon">✅</span>
-                <span class="label">Step 3<br /><span style="font-size:9px; color:#999;"><strong>Project Manager</strong> Approves</span></span>
-            </div>
-            <span class="approval-arrow">→</span>
-            <div class="approval-step approved">
-                <span class="icon">💰</span>
-                <span class="label">Step 4<br /><span style="font-size:9px; color:#999;">Invoice Auto-Generated</span></span>
-            </div>
-        </div>
+STEP 1: COMPLIANCE GATEKEEPER
+───────────────────────────────
+Project starts → Compliance checklist required
+↓
+Is compliance complete? → NO → Block access to daily logs
+                      → YES → Proceed to Step 2
 
-        <div class="highlight-box">
-            <strong>🔒 The Golden Rule:</strong> No compliance → No daily log → No PM approval → <strong>No invoice.</strong>
+STEP 2: DAILY LOG SUBMISSION
+───────────────────────────────
+Site team submits daily log
+- Work items completed
+- Quantities recorded
+- Photos attached
+- Weather, manpower, delays noted
+↓
+Daily log submitted for PM review
+
+STEP 3: PROJECT MANAGER APPROVAL
+──────────────────────────────────
+PM reviews daily log
+- Compares quantities to site conditions
+- Checks photos and evidence
+- Verifies against BOQ
+↓
+Is everything accurate? → NO → Reject. Contractor resubmits.
+                       → YES → Approve. Quantities lock in.
+
+STEP 4: AUTO-GENERATED INVOICE
+─────────────────────────────────
+Approved quantities + Rate = Invoice
+Invoice = (Approved Qty × Rate) for all approved items
+↓
+Invoice ready for payment
+         │
+         ↓
+        ✅ PAYMENT (No disputes)
+
+═══════════════════════════════════════════════════════════════════════
+
+🔒 THE GOLDEN RULE:
+
+No Compliance → No Daily Log → No PM Approval → No Invoice
+
+═══════════════════════════════════════════════════════════════════════
         </div>
 
         <h3>5.1 Who Can Approve?</h3>
         <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>Role</th><th>Authority Level</th><th>Configurable</th></tr>
+                    <tr><th>Role</th><th>Authority</th><th>Can Block</th><th>Can Approve</th><th>Notes</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Project Manager</td><td>Full approval authority</td><td>Primary approver</td></tr>
-                    <tr><td>Construction Manager</td><td>Approve on behalf of PM</td><td>Yes</td></tr>
-                    <tr><td>Site Manager</td><td>Approve within delegated scope</td><td>Yes</td></tr>
-                    <tr><td>Quantity Surveyor</td><td>Approve quantities and rates</td><td>Yes</td></tr>
-                    <tr><td>Any Authorised Role</td><td>As defined by client org structure</td><td>Fully configurable</td></tr>
+                    <tr><td>Project Manager</td><td>Full</td><td>✅</td><td>✅</td><td>Primary approver. Ultimate authority.</td></tr>
+                    <tr><td>Construction Manager</td><td>Delegated</td><td>✅</td><td>✅</td><td>Can approve on behalf of PM if delegated</td></tr>
+                    <tr><td>Site Manager</td><td>Limited</td><td>✅</td><td>✅</td><td>Can approve daily logs within delegated items</td></tr>
+                    <tr><td>Quantity Surveyor</td><td>Quantities</td><td>✅</td><td>✅</td><td>Authority on measurements and rates</td></tr>
+                    <tr><td>Safety Officer</td><td>Compliance</td><td>✅</td><td>✅</td><td>Approves safety compliance items</td></tr>
                 </tbody>
             </table>
         </div>
-
-        <h3>5.2 The Compliance Gatekeeper — How It Works</h3>
-        <ol>
-            <li><strong>System checks</strong> compliance requirements per project (safety file, insurance certificates, permits, inductions)</li>
-            <li><strong>Blocks access</strong> to daily logs and submissions if any item is missing or expired</li>
-            <li><strong>Notifies users</strong> what's required to unlock the project</li>
-            <li><strong>Verifies &amp; unlocks</strong> once all requirements are met</li>
-            <li><strong>Proactive alerts</strong> when certificates are approaching expiry</li>
-        </ol>
     </div>
 
     <!-- ─── SECTION 6 ────────────────────────────────────────────── -->
@@ -418,19 +621,19 @@
         <div class="section-number">Section 6</div>
         <h2>Market <span class="accent">Analysis</span></h2>
 
-        <h3>6.1 South Africa Construction — The Numbers</h3>
+        <h3>6.1 South African Construction Industry — The Numbers</h3>
         <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>Statistic</th><th>Value</th><th>Source/Year</th></tr>
+                    <tr><th>Metric</th><th>Value</th><th>Source/Year</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Contribution to GDP</td><td>~2.4-3%</td><td>Stats SA 2024</td></tr>
-                    <tr><td>Registered companies</td><td>100,000+</td><td>CIDB</td></tr>
-                    <tr><td>People employed</td><td>500,000+</td><td>Industry estimates</td></tr>
-                    <tr><td>Government tender value</td><td>R200B+ annually</td><td>National Treasury</td></tr>
-                    <tr><td>Payment dispute losses</td><td>15-30% of project value</td><td>Industry research</td></tr>
-                    <tr><td>CIDB-listed firms (Grades 1-9)</td><td>25,000+</td><td>CIDB 2024</td></tr>
+                    <tr><td>Construction GDP Contribution</td><td>2.4-3%</td><td>Stats SA 2024</td></tr>
+                    <tr><td>Construction Employment</td><td>500,000+</td><td>CIDB 2024</td></tr>
+                    <tr><td>Registered Contractors</td><td>100,000+</td><td>CIDB 2024</td></tr>
+                    <tr><td>Government Capital Spend (construction)</td><td>R200B+</td><td>National Treasury 2024</td></tr>
+                    <tr><td>Private Sector Construction</td><td>R300B+</td><td>CIDB estimates</td></tr>
+                    <tr><td>Project Payment Disputes</td><td>15-30% of value</td><td>Industry reports</td></tr>
                 </tbody>
             </table>
         </div>
@@ -458,31 +661,13 @@
                     <tr><th>Metric</th><th>Value</th><th>Calculation</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>TAM</strong> (Total Addressable Market)</td><td><strong>R2.5B</strong></td><td>100,000 companies × R2,083/month (avg of all plans)</td></tr>
-                    <tr><td><strong>SAM</strong> (Serviceable Addressable Market)</td><td><strong>R250M</strong></td><td>10,000 medium+ companies × avg R2,083/month</td></tr>
-                    <tr><td><strong>SOM</strong> (Serviceable Obtainable Market Y3)</td><td><strong>R5.4M</strong></td><td>150 projects × R3,000/month avg</td></tr>
+                    <tr><td><strong>TAM</strong> (Total Addressable Market)</td><td><strong>R2.5B</strong></td><td>100,000 companies × R2,083/month</td></tr>
+                    <tr><td><strong>SAM</strong> (Serviceable Addressable Market)</td><td><strong>R600M</strong></td><td>20,000 medium+ companies × R2,500/month</td></tr>
+                    <tr><td><strong>SOM</strong> (Serviceable Obtainable Market Y3)</td><td><strong>R5.4M</strong></td><td>150 projects × R3,000/month</td></tr>
                 </tbody>
             </table>
         </div>
-        <p style="font-size:13px; color:#666; margin-top:4px;">📈 <strong>Conservative approach:</strong> SOM represents just 2.2% of SAM. Significant headroom for growth.</p>
-
-        <h3>6.4 Competitive Landscape</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Competitor</th><th>BOQ</th><th>RFQ</th><th>Compliance Gate</th><th>PM Approval</th><th>Auto-Invoicing</th><th>Desktop</th><th>SA Pricing (monthly)</th></tr>
-                </thead>
-                <tbody>
-                    <tr style="background:#fef9f4; font-weight:600;"><td><strong>Itesho</strong></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td><strong>R1,500 - R5,500</strong></td></tr>
-                    <tr><td>BuildSmart</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>R8,000+</td></tr>
-                    <tr><td>Procore</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>R12,000+</td></tr>
-                    <tr><td>Candy (CCS)</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>R6,500+</td></tr>
-                    <tr><td>Contractor Foreman</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>R2,500+</td></tr>
-                    <tr><td>Excel/WhatsApp</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>"Free" (costly errors)</td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="font-size:13px; color:#666; margin-top:4px;">🏆 <strong>Itesho's Differentiator:</strong> The only platform combining BOQ + RFQ + Compliance Gatekeeper + PM Approval + Auto-Invoicing + Desktop option — at the lowest price point.</p>
+        <p style="font-size:13px; color:#666;">📈 <strong>Conservative:</strong> SOM is just 0.9% of SAM. Significant headroom for growth.</p>
     </div>
 
     <!-- ─── SECTION 7 ────────────────────────────────────────────── -->
@@ -491,7 +676,6 @@
         <h2>Go-to-Market <span class="accent">Strategy</span></h2>
 
         <h3>7.1 Phase 1: Pilot &amp; Validation (Months 1-6)</h3>
-        <p><strong>Objective:</strong> Validate product-market fit with real construction companies</p>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -499,8 +683,8 @@
                 </thead>
                 <tbody>
                     <tr><td>Pilot clients</td><td>5 companies (3 months free, then convert to paid)</td><td>R0 (product ready)</td></tr>
-                    <tr><td>Direct outreach</td><td>Contacts from MXN Construction, BABA Plant, industry network</td><td>R5,000 (travel/meetings)</td></tr>
-                    <tr><td>Case study creation</td><td>Document before/after results from pilots</td><td>R10,000 (design, copy)</td></tr>
+                    <tr><td>Direct outreach</td><td>Contacts from MXN Construction, BABA Plant, industry network</td><td>R5,000</td></tr>
+                    <tr><td>Case study creation</td><td>Document before/after results from pilots</td><td>R10,000</td></tr>
                     <tr><td>Referral programme</td><td>Pilot clients earn 15% discount for referring peers</td><td>Discount cost</td></tr>
                 </tbody>
             </table>
@@ -508,17 +692,16 @@
         <p><strong>Success Metric:</strong> 5 paying clients by Month 6 = <strong>R22,500/month revenue</strong></p>
 
         <h3>7.2 Phase 2: Early Growth (Months 6-12)</h3>
-        <p><strong>Objective:</strong> Build revenue and prove repeatable sales process</p>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr><th>Channel</th><th>Description</th><th>Monthly Budget</th><th>Expected Leads</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>LinkedIn Outreach</td><td>Direct messaging to QSs, PMs, contractors</td><td>R3,000 (LinkedIn Premium)</td><td>40/month</td></tr>
+                    <tr><td>LinkedIn Outreach</td><td>Direct messaging to QSs, PMs, contractors</td><td>R3,000</td><td>40/month</td></tr>
                     <tr><td>Google Ads</td><td>Keywords: "BOQ software SA", "construction project management"</td><td>R8,000</td><td>60/month</td></tr>
-                    <tr><td>Industry Events</td><td>CIDB workshops, Master Builders Association, construction expos</td><td>R5,000 (avg)</td><td>20/event</td></tr>
-                    <tr><td>Email Marketing</td><td>Curated list of construction companies</td><td>R2,000 (tool)</td><td>30/month</td></tr>
+                    <tr><td>Industry Events</td><td>CIDB workshops, Master Builders Association, construction expos</td><td>R5,000</td><td>20/event</td></tr>
+                    <tr><td>Email Marketing</td><td>Curated list of construction companies</td><td>R2,000</td><td>30/month</td></tr>
                     <tr><td>Referral Programme</td><td>10% discount for referrer, 10% for referred</td><td>—</td><td>5/month</td></tr>
                 </tbody>
             </table>
@@ -532,7 +715,7 @@
                     <tr><th>Channel</th><th>Description</th><th>Monthly Budget</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>QS &amp; PM Firm Partnerships</td><td>White-label or reseller agreements with QS consultancies</td><td>R5,000 (partner management)</td></tr>
+                    <tr><td>QS &amp; PM Firm Partnerships</td><td>White-label or reseller agreements with QS consultancies</td><td>R5,000</td></tr>
                     <tr><td>CIDB Engagement</td><td>Present at CIDB contractor development programmes</td><td>R5,000</td></tr>
                     <tr><td>Content Marketing</td><td>Blog, case studies, video tutorials, industry best practices</td><td>R8,000</td></tr>
                     <tr><td>Government Tender Portals</td><td>List solution on CSD, respond to digital transformation tenders</td><td>R5,000</td></tr>
@@ -541,14 +724,6 @@
             </table>
         </div>
         <p><strong>Success Metric:</strong> 70+ paying clients by Month 24 = <strong>R2.1M ARR</strong></p>
-
-        <h3>7.4 Phase 4: Expand (Months 24+)</h3>
-        <ul>
-            <li><strong>Pan-African:</strong> Namibia, Botswana, Zambia (similar regulatory frameworks)</li>
-            <li><strong>Channel Partners:</strong> Construction software resellers in target markets</li>
-            <li><strong>Integration Partnerships:</strong> Accounting software (Sage, Xero), ERP systems</li>
-            <li><strong>Dedicated Enterprise Team:</strong> 2-3 sales reps for large contractors and government</li>
-        </ul>
     </div>
 
     <!-- ─── SECTION 8 ────────────────────────────────────────────── -->
@@ -602,53 +777,7 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size:13px; color:#666;">✅ <strong>Healthy SaaS benchmark:</strong> LTV:CAC > 3x is good. > 5x is excellent. Itesho projects 8.6x in Year 1.</p>
-
-        <h3>8.4 The Sales Process</h3>
-        <div style="display:flex; flex-wrap:wrap; gap:8px; padding:12px 0; align-items:center;">
-            <span style="background:#f8f8f8; padding:4px 12px; border-radius:4px; font-size:12px;">Lead Source</span>
-            <span style="color:#ccc;">→</span>
-            <span style="background:#f8f8f8; padding:4px 12px; border-radius:4px; font-size:12px;">Qualification Call <span style="color:#999; font-size:10px;">(30 mins)</span></span>
-            <span style="color:#ccc;">→</span>
-            <span style="background:#f8f8f8; padding:4px 12px; border-radius:4px; font-size:12px;">Demo <span style="color:#999; font-size:10px;">(45 mins)</span></span>
-            <span style="color:#ccc;">→</span>
-            <span style="background:#f8f8f8; padding:4px 12px; border-radius:4px; font-size:12px;">Proposal</span>
-            <span style="color:#ccc;">→</span>
-            <span style="background:#f8f8f8; padding:4px 12px; border-radius:4px; font-size:12px;">Trial <span style="color:#999; font-size:10px;">(14 days)</span></span>
-            <span style="color:#ccc;">→</span>
-            <span style="background:#10b981; color:#fff; padding:4px 12px; border-radius:4px; font-size:12px; font-weight:600;">Convert</span>
-        </div>
-
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Stage</th><th>Conversion Rate</th><th>Description</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Leads → Discovery Call</td><td>25%</td><td>100 leads → 25 calls booked</td></tr>
-                    <tr><td>Discovery → Demo</td><td>40%</td><td>25 calls → 10 demos</td></tr>
-                    <tr><td>Demo → Trial</td><td>50%</td><td>10 demos → 5 trials</td></tr>
-                    <tr><td>Trial → Paying</td><td>60%</td><td>5 trials → 3 paying clients</td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="font-size:13px; color:#666;">📊 <strong>Overall: 3% lead-to-customer conversion.</strong> To get 25 Year 1 clients: ~830 leads required over 12 months (~70/month).</p>
-
-        <h3>8.5 Customer Retention Strategy</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Strategy</th><th>Description</th><th>Impact</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Onboarding Excellence</td><td>2-hour training + first BOQ imported free</td><td>Reduces early churn</td></tr>
-                    <tr><td>Quarterly Business Reviews</td><td>Check-in calls with Pro/Enterprise clients</td><td>Increases expansion revenue</td></tr>
-                    <tr><td>Proactive Support</td><td>Monitor usage, reach out to inactive accounts</td><td>Reduces silent churn</td></tr>
-                    <tr><td>Feature Request System</td><td>Public roadmap, vote on features</td><td>Builds loyalty</td></tr>
-                    <tr><td>Annual Contracts</td><td>17% discount for annual commitment</td><td>Locks in revenue</td></tr>
-                </tbody>
-            </table>
-        </div>
+        <p style="font-size:13px; color:#666;">✅ <strong>Healthy SaaS benchmark:</strong> LTV:CAC > 3x is good. Itesho projects 8.6x in Year 1.</p>
     </div>
 
     <!-- ─── SECTION 9 ────────────────────────────────────────────── -->
@@ -663,21 +792,13 @@
                 </thead>
                 <tbody>
                     <tr><td><strong>MVP</strong></td><td>Completed (June 2025)</td><td>Dashboard, Projects, BOQ, Gatekeeper, Daily Logs, Submissions, Invoices, RFQ</td><td><span class="badge-green-sm">✅ Live</span></td></tr>
-                    <tr><td><strong>Phase 2</strong></td><td>Q3 2025</td><td>Advanced Reporting &amp; Export (PDF, Excel), User Role Permissions, Email Notifications, Client Portal</td><td>🔄 In Progress</td></tr>
+                    <tr><td><strong>Phase 2</strong></td><td>Q3 2025</td><td>Advanced Reporting, User Role Permissions, Email Notifications, Client Portal</td><td>🔄 In Progress</td></tr>
                     <tr><td><strong>Phase 3</strong></td><td>Q1 2026</td><td>Desktop Version (Electron), Offline Mode, Mobile-Optimised Web App</td><td>📋 Planned</td></tr>
-                    <tr><td><strong>Phase 4</strong></td><td>Q3 2026</td><td>Analytics Dashboard (budget vs actual forecasting), Integration APIs (Sage, Xero, SharePoint), Document Management</td><td>📋 Planned</td></tr>
-                    <tr><td><strong>Phase 5</strong></td><td>2027+</td><td>AI-Powered Risk Detection, Automated Progress Reporting, Multi-lingual Support (Afrikaans, isiZulu), Pan-African Compliance Modules</td><td>🔮 Vision</td></tr>
+                    <tr><td><strong>Phase 4</strong></td><td>Q3 2026</td><td>Analytics Dashboard, Integration APIs (Sage, Xero, SharePoint), Document Management</td><td>📋 Planned</td></tr>
+                    <tr><td><strong>Phase 5</strong></td><td>2027+</td><td>AI-Powered Risk Detection, Multi-lingual Support, Pan-African Compliance Modules</td><td>🔮 Vision</td></tr>
                 </tbody>
             </table>
         </div>
-
-        <h3>9.1 Product Development Principles</h3>
-        <ul>
-            <li><strong>Ship weekly</strong> — Continuous deployment with incremental improvements</li>
-            <li><strong>Customer-driven</strong> — Feature prioritisation based on client requests and usage data</li>
-            <li><strong>Mobile-first where it matters</strong> — Daily logs and approvals optimised for site phones</li>
-            <li><strong>API-first architecture</strong> — Enables integrations and partner ecosystem</li>
-        </ul>
     </div>
 
     <!-- ─── SECTION 10 ───────────────────────────────────────────── -->
@@ -685,15 +806,14 @@
         <div class="section-number">Section 10</div>
         <h2>Team &amp; <span class="accent">Organisation</span></h2>
 
-        <h3>10.1 Current Team</h3>
+        <h3>10.1 Current Team (June 2025)</h3>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr><th>Role</th><th>Person</th><th>Responsibilities</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Founder &amp; CEO</strong></td><td>Siyabonga Nkala</td><td>Product development, sales, strategy, client relationships</td></tr>
-                    <tr><td><strong>Technical Stack Owner</strong></td><td>Siyabonga Nkala</td><td>Full-stack development (React, Django, PostgreSQL), cloud infrastructure, cybersecurity</td></tr>
+                    <tr><td><strong>Founder &amp; CEO</strong></td><td>Siyabonga Nkala</td><td>Product development (40%), Sales (40%), Operations (20%)</td></tr>
                 </tbody>
             </table>
         </div>
@@ -708,26 +828,13 @@
                     <tr><th>Role</th><th>Hire Month</th><th>Monthly Cost</th><th>Rationale</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Junior Full-Stack Developer</strong></td><td>Month 6</td><td>R18,000</td><td>Handle bug fixes and Phase 2 features, freeing founder for sales</td></tr>
-                    <tr><td><strong>Sales &amp; Partnership Lead</strong></td><td>Month 9</td><td>R25,000 + 10% commission</td><td>Drive paid customer acquisition, manage partner channels</td></tr>
-                    <tr><td><strong>Customer Success (Part-time)</strong></td><td>Month 10</td><td>R10,000 (half-day)</td><td>Onboarding, support, retention for growing client base</td></tr>
-                    <tr><td><strong>Senior Developer</strong></td><td>Month 18</td><td>R40,000</td><td>Own Phase 4 development, lead junior dev(s)</td></tr>
-                    <tr><td><strong>Marketing Specialist</strong></td><td>Month 18</td><td>R35,000</td><td>Content marketing, SEO, paid ads, event presence</td></tr>
+                    <tr><td>Junior Full-Stack Developer</td><td>Month 6</td><td>R18,000</td><td>Handle bug fixes and Phase 2 features</td></tr>
+                    <tr><td>Sales &amp; Partnership Lead</td><td>Month 9</td><td>R25,000 + 10% commission</td><td>Drive paid customer acquisition</td></tr>
+                    <tr><td>Customer Success (Part-time)</td><td>Month 10</td><td>R10,000</td><td>Onboarding, support, retention</td></tr>
+                    <tr><td>Senior Developer</td><td>Month 18</td><td>R40,000</td><td>Own Phase 4 development</td></tr>
+                    <tr><td>Marketing Specialist</td><td>Month 18</td><td>R35,000</td><td>Content marketing, SEO, paid ads</td></tr>
                 </tbody>
             </table>
-        </div>
-
-        <h3>10.3 Organisational Structure (End of Year 2)</h3>
-        <div style="font-family:monospace; background:#f8f8f8; padding:16px 24px; border-radius:8px; font-size:13px; line-height:2;">
-            Founder &amp; CEO<br />
-            Siyabonga Nkala<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;├── Product &amp; Tech<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;├── Senior Developer<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;└── Junior Developer<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;├── Sales &amp; BD<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;└── Sales Lead (Partnerships)<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;└── Customer Success<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── CS Specialist (Support)
         </div>
     </div>
 
@@ -736,16 +843,15 @@
         <div class="section-number">Section 11</div>
         <h2>SWOT &amp; <span class="accent">Risk Mitigation</span></h2>
 
-        <h3>11.1 SWOT Analysis</h3>
         <div class="swot-grid">
             <div class="swot-box swot-strengths">
                 <h4>💪 Strengths</h4>
                 <ul>
-                    <li>Unique PM approval + compliance gatekeeper (no competitor has both)</li>
+                    <li>Unique PM approval + compliance gatekeeper</li>
                     <li>B-BBEE Level 1 — competitive advantage for gov/enterprise</li>
                     <li>Cloud + desktop — serves all market segments</li>
-                    <li>Founder: rare combination of construction domain knowledge AND technical capability</li>
-                    <li>Lowest market price with most features (R1,500 vs R8,000+)</li>
+                    <li>Founder: construction domain + technical capability</li>
+                    <li>Lowest market price with most features</li>
                     <li>Capex-light SaaS model with 72%+ gross margins</li>
                 </ul>
             </div>
@@ -755,34 +861,33 @@
                     <li>New entrant with no brand equity</li>
                     <li>Limited marketing budget in early stages</li>
                     <li>Solo founder dependency</li>
-                    <li>Early-stage — limited case studies and social proof</li>
+                    <li>Early-stage — limited case studies</li>
                     <li>No mobile app yet (mobile web only)</li>
-                    <li>Small team limits parallel initiatives</li>
                 </ul>
             </div>
             <div class="swot-box swot-opportunities">
                 <h4>🚀 Opportunities</h4>
                 <ul>
-                    <li>Government digital procurement drive (National Treasury directive)</li>
+                    <li>Government digital procurement drive</li>
                     <li>15-30% payment dispute problem crying out for solution</li>
-                    <li>B-BBEE compliance requirements favouring Level 1 suppliers</li>
-                    <li>Pan-African expansion (SADC region similar frameworks)</li>
+                    <li>B-BBEE compliance favouring Level 1 suppliers</li>
+                    <li>Pan-African expansion (SADC region)</li>
                     <li>Smartphone penetration enabling mobile site logging</li>
                 </ul>
             </div>
             <div class="swot-box swot-threats">
                 <h4>🔥 Threats</h4>
                 <ul>
-                    <li>Established competitors (Procore, BuildSmart) — though they're expensive and less feature-complete for SA</li>
+                    <li>Established competitors (Procore, BuildSmart)</li>
                     <li>Economic headwinds reducing construction spend</li>
                     <li>Regulatory changes in CIDB, COID, POPIA</li>
                     <li>New entrants copying the compliance gatekeeper concept</li>
-                    <li>Rand volatility affecting cloud infrastructure costs (USD-priced services)</li>
+                    <li>Rand volatility affecting cloud infrastructure costs</li>
                 </ul>
             </div>
         </div>
 
-        <h3>11.2 Risk Mitigation Plan</h3>
+        <h3>11.1 Risk Mitigation Plan</h3>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -790,13 +895,11 @@
                 </thead>
                 <tbody>
                     <tr><td><strong>Key Person Risk</strong> (Solo Founder)</td><td>High</td><td>Critical</td><td>Document all code thoroughly. Hire Junior Dev at Month 6. Build standard operating procedures. Maintain comprehensive documentation.</td></tr>
-                    <tr><td><strong>Slow Adoption</strong> (Below 25 clients Y1)</td><td>Medium</td><td>High</td><td>14-day free trial with no credit card. Case studies from pilots. Lean cost structure means even 15 clients = positive cash flow.</td></tr>
-                    <tr><td><strong>Competitive Response</strong></td><td>Medium</td><td>Medium</td><td>Feature depth they don't have (gatekeeper, RFQ, auto-invoicing). Price advantage. B-BBEE Level 1 they can't match. Focus on SA-specific compliance needs.</td></tr>
-                    <tr><td><strong>Cash Flow Gap</strong></td><td>Medium</td><td>High</td><td>R500k funding request provides 14-month runway. Lean operations. Founder can reduce/stop draw if needed. Monthly burn rate of R39k is manageable.</td></tr>
+                    <tr><td><strong>Slow Adoption</strong></td><td>Medium</td><td>High</td><td>14-day free trial with no credit card. Case studies from pilots. Lean cost structure means even 15 clients = positive cash flow.</td></tr>
+                    <tr><td><strong>Competitive Response</strong></td><td>Medium</td><td>Medium</td><td>Feature depth they don't have. Price advantage. B-BBEE Level 1 they can't match. Focus on SA-specific compliance needs.</td></tr>
+                    <tr><td><strong>Cash Flow Gap</strong></td><td>Medium</td><td>High</td><td>R500k funding provides 14-month runway. Lean operations. Founder can reduce/stop draw if needed. Burn rate of R39k is manageable.</td></tr>
                     <tr><td><strong>Technical Downtime</strong></td><td>Low</td><td>Medium</td><td>Vercel &amp; Render offer 99.9%+ uptime. Automated daily backups. Desktop version serves as offline fallback.</td></tr>
-                    <tr><td><strong>Regulatory Changes</strong></td><td>Low</td><td>Medium</td><td>Monitor CIDB, COID, SARS changes via industry bodies. Modular design allows rapid compliance updates.</td></tr>
-                    <tr><td><strong>Economic Downturn</strong></td><td>Medium</td><td>Low-Medium</td><td>SaaS = operational cost reduction for clients. In a downturn, preventing payment disputes matters MORE. Affordable pricing vs competitors.</td></tr>
-                    <tr><td><strong>POPIA Compliance</strong></td><td>Low</td><td>Critical</td><td>Data encryption in transit and at rest. User data stored in PostgreSQL with strict access controls. Legal review of data processing. Desktop version offers full data sovereignty option.</td></tr>
+                    <tr><td><strong>POPIA Compliance</strong></td><td>Low</td><td>Critical</td><td>Data encryption in transit and at rest. Strict access controls. Legal review of data processing. Desktop version offers full data sovereignty option.</td></tr>
                 </tbody>
             </table>
         </div>
@@ -807,7 +910,6 @@
         <div class="section-number">Section 12</div>
         <h2>Pricing &amp; <span class="accent">Revenue Model</span></h2>
 
-        <h3>12.1 Cloud-Based SaaS Pricing</h3>
         <div class="pricing-grid">
             <div class="pricing-card">
                 <div class="plan">🌱 Starter</div>
@@ -851,7 +953,7 @@
             </div>
         </div>
 
-        <h3>12.2 Annual Subscription (Save 17%)</h3>
+        <h3>12.1 Annual Subscription (Save 17%)</h3>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -865,15 +967,15 @@
             </table>
         </div>
 
-        <h3>12.3 Desktop Version (from Q1 2026)</h3>
+        <h3>12.2 Desktop Version (from Q1 2026)</h3>
         <ul>
             <li><strong>One-time license:</strong> R5,000 per seat</li>
-            <li><strong>Annual maintenance</strong> (updates + support): R1,500 per seat/year</li>
+            <li><strong>Annual maintenance:</strong> R1,500 per seat/year</li>
             <li><strong>Offline mode:</strong> Included</li>
             <li><strong>Data sovereignty:</strong> All data stored locally</li>
         </ul>
 
-        <h3>12.4 What's Included (All Plans)</h3>
+        <h3>12.3 What's Included (All Plans)</h3>
         <ul>
             <li>✅ No setup fees</li>
             <li>✅ Free onboarding (2-hour session)</li>
@@ -882,22 +984,6 @@
             <li>✅ SSL encryption</li>
             <li>✅ 99.9% uptime SLA</li>
         </ul>
-
-        <h3>12.5 Revenue Mix Assumptions (Year 1)</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Plan</th><th>% of Clients</th><th>Clients</th><th>Projects/Client</th><th>Monthly Rev/Client</th><th>Annualised</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Starter</td><td>40%</td><td>10</td><td>1.5</td><td>R2,250</td><td>R270,000</td></tr>
-                    <tr><td>Pro</td><td>50%</td><td>12.5</td><td>3</td><td>R10,500</td><td>R1,575,000</td></tr>
-                    <tr><td>Enterprise</td><td>10%</td><td>2.5</td><td>8</td><td>R44,000</td><td>R528,000</td></tr>
-                    <tr class="total-row"><td><strong>Total</strong></td><td><strong>100%</strong></td><td><strong>25</strong></td><td>—</td><td>—</td><td><strong>R2,373,000</strong></td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="font-size:13px; color:#666;">⚠️ <strong>Conservative projection used in financials:</strong> R750,000 ARR Year 1 (assumes slower ramp, discounting, and churn buffer).</p>
     </div>
 
     <!-- ─── SECTION 13 ───────────────────────────────────────────── -->
@@ -915,7 +1001,7 @@
                     <tr><td>Paying Projects</td><td>25</td><td>70</td><td>150</td></tr>
                     <tr><td>Avg Revenue/Project/Month</td><td>R2,500</td><td>R2,750</td><td>R3,000</td></tr>
                     <tr><td>Annual Recurring Revenue (ARR)</td><td>R750,000</td><td>R2,310,000</td><td>R5,400,000</td></tr>
-                    <tr><td>Year-over-Year Growth</td><td>—</td><td>+208%</td><td>+134%</td></tr>
+                    <tr><td>YoY Growth</td><td>—</td><td>+208%</td><td>+134%</td></tr>
                     <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td></tr>
                     <tr><td>Operating Expenses</td><td>R570,000</td><td>R780,000</td><td>R1,100,000</td></tr>
                     <tr class="total-row"><td><strong>Net Income</strong></td><td><strong>R180,000</strong></td><td><strong>R1,530,000</strong></td><td><strong>R4,300,000</strong></td></tr>
@@ -947,42 +1033,7 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size:13px; color:#666;">📝 <strong>Note:</strong> Month 9 jump in salaries reflects hiring Sales Lead (R25k). Revenue monthly run rate reaches R75,000 by Month 12. Break-even at Month 14-15 when revenue exceeds expenses.</p>
-
-        <h3>13.3 Unit Economics</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Customer Acquisition Cost (CAC)</td><td>R3,500</td><td>R2,300</td><td>R1,700</td></tr>
-                    <tr><td>Lifetime Value (LTV)</td><td>R30,000</td><td>R38,500</td><td>R48,000</td></tr>
-                    <tr><td>LTV:CAC Ratio</td><td>8.6x</td><td>16.7x</td><td>28.2x</td></tr>
-                    <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td></tr>
-                    <tr><td>Churn Rate (monthly)</td><td>5%</td><td>3%</td><td>2%</td></tr>
-                    <tr><td>Avg Revenue Per Project/Month</td><td>R2,500</td><td>R2,750</td><td>R3,000</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>13.4 Key Financial Assumptions</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Assumption</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>New projects/month (avg)</td><td>2.5</td><td>5.8</td><td>12.5</td></tr>
-                    <tr><td>Pricing mix</td><td>40% / 50% / 10%</td><td>35% / 50% / 15%</td><td>30% / 45% / 25%</td></tr>
-                    <tr><td>Cloud cost % of revenue</td><td>7.5%</td><td>5%</td><td>3%</td></tr>
-                    <tr><td>Marketing % of revenue</td><td>23%</td><td>12%</td><td>8%</td></tr>
-                    <tr><td>Churn rate (monthly)</td><td>5%</td><td>3%</td><td>2%</td></tr>
-                    <tr><td>Discount/promo buffer</td><td>15%</td><td>10%</td><td>5%</td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="font-size:13px; color:#666;">⚠️ <strong>Conservative notes:</strong> Revenue projections assume 85% of calculated gross at Year 1, to account for pilot discounts (free months), annual prepay discounts (17%), and early churn. All dollar-based cloud costs include 15% Rand depreciation buffer.</p>
+        <p style="font-size:13px; color:#666;">📝 <strong>Note:</strong> Month 9 jump in salaries reflects hiring Sales Lead (R25k). Revenue reaches R75,000/month by Month 12. Break-even at Month 14-15.</p>
     </div>
 
     <!-- ─── SECTION 14 ───────────────────────────────────────────── -->
@@ -993,7 +1044,7 @@
         <h3>14.1 Capital Required</h3>
         <div class="highlight-box">
             <strong>💰 Amount:</strong> R500,000<br />
-            <strong>Instrument:</strong> Equity (SAFE or convertible note) or repayable grant<br />
+            <strong>Instrument:</strong> Equity (SAFE or convertible note)<br />
             <strong>Runway:</strong> 14 months<br />
             <strong>Expected Break-even:</strong> Month 14<br />
             <strong>Cash at M12:</strong> R361,500 (from R500k starting)
@@ -1006,8 +1057,8 @@
                     <tr><th>Category</th><th>Amount</th><th>%</th><th>Details</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Development &amp; Infrastructure</td><td>R150,000</td><td>30%</td><td>Render, Vercel, Supabase hosting (18 months), Phase 2-3 development, Desktop version MVP</td></tr>
-                    <tr><td>Marketing &amp; Sales</td><td>R150,000</td><td>30%</td><td>Google Ads, LinkedIn, industry event attendance/exhibition, content marketing, case studies</td></tr>
+                    <tr><td>Development &amp; Infrastructure</td><td>R150,000</td><td>30%</td><td>Render, Vercel, Supabase hosting (18 months), Phase 2-3 development</td></tr>
+                    <tr><td>Marketing &amp; Sales</td><td>R150,000</td><td>30%</td><td>Google Ads, LinkedIn, industry events, content marketing, case studies</td></tr>
                     <tr><td>Working Capital</td><td>R100,000</td><td>20%</td><td>Operational buffer, professional services, POPIA compliance review</td></tr>
                     <tr><td>Salaries (Founder Draw)</td><td>R100,000</td><td>20%</td><td>Partial founder salary for 12-14 months (~R7,000-8,000/month)</td></tr>
                 </tbody>
@@ -1015,7 +1066,6 @@
         </div>
 
         <h3>14.3 Investor Return Scenarios</h3>
-        <p><strong>Based on conservative 5x ARR valuation multiple (standard SaaS):</strong></p>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -1029,22 +1079,6 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size:13px; color:#666;">💰 <strong>Target investor profile:</strong> Angel investor or early-stage VC with construction/PropTech interest. B-BBEE enterprise development funds are also a strong fit given Level 1 status.</p>
-
-        <h3>14.4 Alternative Funding Paths</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Option</th><th>Amount</th><th>Notes</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Enterprise Development Grant</td><td>R500k-R1M</td><td>B-BBEE funds from large construction firms (Level 1 is qualifying)</td></tr>
-                    <tr><td>Govt Innovation Fund</td><td>R250k-R1M</td><td>DSI, TIA, or SEDA technology programme</td></tr>
-                    <tr><td>Bootstrapping</td><td>R200k savings</td><td>Slower growth but 100% ownership retained</td></tr>
-                    <tr><td>Client Pre-payments</td><td>R50k-R100k</td><td>6-12 month annual prepays at 17% discount</td></tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 
     <!-- ─── SECTION 15 ───────────────────────────────────────────── -->
@@ -1053,7 +1087,7 @@
         <h2>Exit <span class="accent">Strategy</span></h2>
 
         <h3>15.1 Vision</h3>
-        <p>Build a profitable, category-defining platform that becomes the <strong>default project control solution for construction in Africa.</strong> Exit opportunistically when it creates maximum value for founders and investors.</p>
+        <p>Build a profitable, category-defining platform that becomes the <strong>default project control solution for construction in Africa.</strong></p>
 
         <h3>15.2 Potential Acquirers</h3>
         <div class="table-wrap">
@@ -1065,56 +1099,176 @@
                     <tr><td><strong>Procore</strong></td><td>Expanding into Africa. SA market = strategic entry. Itesho has local compliance, B-BBEE, and PM approval IP they lack.</td><td>Year 5-7</td></tr>
                     <tr><td><strong>BuildSmart</strong></td><td>SA competitor. Acquiring Itesho eliminates a threat and adds Cloud + Compliance Gatekeeper + Auto-Invoicing to their offering.</td><td>Year 3-5</td></tr>
                     <tr><td><strong>Autodesk / Trimble</strong></td><td>Global construction tech players expanding into project financial control.</td><td>Year 5-7</td></tr>
-                    <tr><td><strong>Large SA Construction Group</strong></td><td>Vertical integration play (e.g., WBHO, Murray &amp; Roberts, Raubex). Using Itesho internally, then commercialising.</td><td>Year 4-6</td></tr>
-                    <tr><td><strong>African Tech Platform</strong></td><td>Strategic acquisition to enter Proptech/Construction vertical (e.g., Jumia, regional ERP providers).</td><td>Year 5+</td></tr>
+                    <tr><td><strong>Large SA Construction Group</strong></td><td>Vertical integration play (e.g., WBHO, Murray &amp; Roberts, Raubex).</td><td>Year 4-6</td></tr>
+                    <tr><td><strong>African Tech Platform</strong></td><td>Strategic acquisition to enter Proptech/Construction vertical.</td><td>Year 5+</td></tr>
                 </tbody>
             </table>
         </div>
-
-        <h3>15.3 Exit Value Targets</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Metric</th><th>Year 3</th><th>Year 5</th><th>Year 7</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>ARR</td><td>R5.4M</td><td>R15M</td><td>R35M</td></tr>
-                    <tr><td>Valuation (5x-8x ARR)</td><td>R27M-R43M</td><td>R75M-R120M</td><td>R175M-R280M</td></tr>
-                    <tr><td>Founder Ownership (post-funding)</td><td>~87%</td><td>~87%</td><td>~80% (assuming employee equity)</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>15.4 Alternative Paths</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr><th>Path</th><th>Description</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>🏢 <strong>Organic Growth</strong></td><td>Remain private, profitable business. Founder owns 100%. R10M+ ARR by Year 4. Sustainable lifestyle business or reinvest for growth.</td></tr>
-                    <tr><td>🤝 <strong>Strategic Partnership</strong></td><td>White-label or embed Itesho within a larger platform (BuildSmart, Sage, or a major contractor's ERP). Revenue share vs acquisition.</td></tr>
-                    <tr><td>🔄 <strong>Management Buyout</strong></td><td>If founder wishes to exit but business continues. Sell to senior team with vendor financing.</td></tr>
-                    <tr><td>📈 <strong>IPO (Long-Term)</strong></td><td>If growth trajectory supports it (R50M+ ARR), list on JSE AltX or A2X. Unlikely before Year 7+.</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>15.5 Strategic Value to Acquirers</h3>
-        <ol>
-            <li><strong>B-BBEE Level 1</strong> — Immediately improves buyer's B-BBEE scorecard, unlocking government contracts</li>
-            <li><strong>Compliance Gatekeeper IP</strong> — Unique technology no competitor has built for the SA market</li>
-            <li><strong>Proven PM Approval Workflow</strong> — Critical for payment dispute reduction (tangible ROI)</li>
-            <li><strong>South African Market Entry</strong> — For global players (Procore), Itesho = instant local presence</li>
-            <li><strong>CIDB Registered</strong> — Already compliant for government tender requirements</li>
-            <li><strong>Founder Domain Expertise</strong> — 15+ years of construction admin knowledge embedded in the product</li>
-        </ol>
     </div>
 
-    <!-- ─── APPENDIX ──────────────────────────────────────────────── -->
-    <div class="section" style="margin-top:60px; border-top:2px solid #eee; padding-top:32px;">
-        <div class="section-number">Appendix</div>
-        <h2>Suggested <span class="accent">Additions</span></h2>
+    <!-- ─── SECTION 16 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 16</div>
+        <h2>Legal &amp; <span class="accent">Compliance</span></h2>
+
+        <h3>16.1 Current Compliance Status</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Requirement</th><th>Status</th><th>Details</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Company Registration</td><td>✅ Complete</td><td>2019/287364/07</td></tr>
+                    <tr><td>B-BBEE</td><td>✅ Level 1</td><td>100% Black-Owned</td></tr>
+                    <tr><td>CIDB</td><td>✅ Active</td><td>1GB, 1ME, 1SG</td></tr>
+                    <tr><td>VAT Registration</td><td>✅ Active</td><td>4440317099</td></tr>
+                    <tr><td>Income Tax</td><td>✅ Active</td><td>9107659246</td></tr>
+                    <tr><td>CSD Supplier</td><td>✅ Active</td><td>MAAA1437675</td></tr>
+                    <tr><td>COID</td><td>✅ Active</td><td>990001587634</td></tr>
+                    <tr><td>POPIA</td><td>🔄 In Progress</td><td>Phase 2 — Data Protection Impact Assessment scheduled</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>16.2 Regulatory Environment</h3>
+        <ul>
+            <li><strong>POPIA (Protection of Personal Information Act):</strong> Full compliance by Phase 2. Data encryption, access controls, consent management.</li>
+            <li><strong>PAIA (Promotion of Access to Information Act):</strong> Manual available on request.</li>
+            <li><strong>CIDB Regulations:</strong> Contractors must maintain compliance with CIDB grading and requirements. Itesho helps clients maintain compliance.</li>
+            <li><strong>COID (Compensation for Occupational Injuries and Diseases):</strong> Contractors must be COID-compliant. Itesho tracks compliance expiry.</li>
+            <li><strong>SARS Tax Compliance:</strong> Itesho is fully tax-compliant, VAT registered, and tax clearance in order.</li>
+            <li><strong>Government Procurement (CSD):</strong> Registered supplier, ready for government tenders.</li>
+        </ul>
+    </div>
+
+    <!-- ─── SECTION 17 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 17</div>
+        <h2>Operations &amp; <span class="accent">Infrastructure</span></h2>
+
+        <h3>17.1 Technology Infrastructure</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Component</th><th>Details</th><th>Provider</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Frontend Hosting</td><td>Vercel (serverless, auto-scaling, CDN)</td><td>Vercel</td></tr>
+                    <tr><td>Backend Hosting</td><td>Container-based deployment</td><td>Render</td></tr>
+                    <tr><td>Database</td><td>PostgreSQL with daily backups</td><td>Render / Supabase</td></tr>
+                    <tr><td>SSL/TLS</td><td>Automatic via Let's Encrypt</td><td>—</td></tr>
+                    <tr><td>Monitoring</td><td>Sentry (errors), Datadog (performance)</td><td>Sentry, Datadog</td></tr>
+                    <tr><td>Logging</td><td>CloudWatch-style logging</td><td>Render</td></tr>
+                    <tr><td>CI/CD</td><td>GitHub Actions or GitLab CI</td><td>GitHub</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>17.2 Security Measures</h3>
+        <ul>
+            <li><strong>Authentication:</strong> JWT tokens, 15-min expiration, refresh tokens</li>
+            <li><strong>Authorization:</strong> Role-based access control (RBAC)</li>
+            <li><strong>Transport:</strong> HTTPS/TLS 1.3 mandatory</li>
+            <li><strong>Data at Rest:</strong> AES-256 encryption</li>
+            <li><strong>Input Validation:</strong> Sanitize all user inputs</li>
+            <li><strong>SQL Injection:</strong> Parameterized queries (Django ORM)</li>
+            <li><strong>CSRF Protection:</strong> CSRF tokens on all forms</li>
+            <li><strong>Rate Limiting:</strong> API rate limiting per user/IP</li>
+        </ul>
+    </div>
+
+    <!-- ─── SECTION 18 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 18</div>
+        <h2>Customer Success &amp; <span class="accent">Retention</span></h2>
+
+        <h3>18.1 Customer Success Philosophy</h3>
+        <p>Happy customers stay longer, refer more, and upgrade. Itesho's customer success program is designed to:</p>
+        <ul>
+            <li>Ensure customers achieve value within first 30 days</li>
+            <li>Proactively prevent churn</li>
+            <li>Identify expansion opportunities</li>
+            <li>Build a community of advocates</li>
+        </ul>
+
+        <h3>18.2 Customer Journey</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Phase</th><th>Activities</th><th>Owner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Onboarding (Day 0-7)</strong></td><td>2-hour training call, import first BOQ, set up compliance checklist, invite users, welcome email with checklist</td><td>Founder (Year 1) → CS (Year 2+)</td></tr>
+                    <tr><td><strong>Adoption (Day 7-30)</strong></td><td>Check-in call (Day 3), feedback call (Day 10), usage monitoring (logins, daily logs, approvals, invoices)</td><td>CS Team</td></tr>
+                    <tr><td><strong>Growth (Month 1-6)</strong></td><td>Quarterly business reviews (QBRs) for Pro/Enterprise, feature request gathering, case study development</td><td>CS Team + Founder</td></tr>
+                    <tr><td><strong>Expansion (Month 6+)</strong></td><td>Identify opportunities to upsell (Starter → Pro → Enterprise), cross-sell (additional projects), referral program</td><td>CS Team + Sales</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>18.3 Retention Metrics</h3>
+        <ul>
+            <li><strong>Monthly Churn Target:</strong> <3%</li>
+            <li><strong>Net Revenue Retention (NRR):</strong> >100%</li>
+            <li><strong>NPS:</strong> >50</li>
+            <li><strong>CSAT:</strong> >90%</li>
+            <li><strong>Customer Health Score:</strong> Logins >10/month, Daily logs >5/month</li>
+        </ul>
+    </div>
+
+    <!-- ─── SECTION 19 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 19</div>
+        <h2>Key Performance <span class="accent">Indicators</span></h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>KPI</th><th>Target (Year 1)</th><th>Target (Year 2)</th><th>Target (Year 3)</th><th>Why It Matters</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Paying Projects</td><td>25</td><td>70</td><td>150</td><td>Core growth metric</td></tr>
+                    <tr><td>ARR</td><td>R750,000</td><td>R2.31M</td><td>R5.4M</td><td>Revenue growth</td></tr>
+                    <tr><td>Monthly Churn</td><td>5%</td><td>3%</td><td>2%</td><td>Customer retention</td></tr>
+                    <tr><td>LTV:CAC Ratio</td><td>8.6x</td><td>16.7x</td><td>28.2x</td><td>Marketing efficiency</td></tr>
+                    <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td><td>Unit economics</td></tr>
+                    <tr><td>NPS</td><td>50+</td><td>60+</td><td>70+</td><td>Customer satisfaction</td></tr>
+                    <tr><td>CSAT</td><td>90%</td><td>92%</td><td>95%</td><td>Customer happiness</td></tr>
+                    <tr><td>Avg Daily Logs/mo</td><td>30+</td><td>40+</td><td>50+</td><td>Product engagement</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ─── SECTION 20 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 20</div>
+        <h2>Implementation <span class="accent">Timeline</span></h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Month</th><th>Key Activities</th><th>Milestone</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Month 1</td><td>Pilot outreach, compliance verification, founder-focused sales, initial case studies</td><td>First pilot signed</td></tr>
+                    <tr><td>Month 2-3</td><td>Pilot onboarding, daily log submission, feedback collection, case study writing</td><td>3 pilots active</td></tr>
+                    <tr><td>Month 4-6</td><td>Pilot to paid conversion, launch announcement, early content creation, LinkedIn/Google Ads starting</td><td>5 paying clients</td></tr>
+                    <tr><td>Month 7-9</td><td>Scaling sales, Junior Developer hired (Month 6), Marketing systems in place</td><td>12 paying clients</td></tr>
+                    <tr><td>Month 10-12</td><td>Sales Lead hired (Month 9), Customer Success part-time (Month 10), Phase 2 launched (Q3 2025)</td><td>25 paying clients, R750k ARR</td></tr>
+                    <tr><td>Month 13-18</td><td>Senior Developer hired (Month 18), Marketing Specialist hired, Phase 3 launched (Q1 2026)</td><td>50 paying clients, R1.5M ARR</td></tr>
+                    <tr><td>Month 19-24</td><td>Desktop version launched, Mobile app launched, Government pilots established</td><td>70 paying clients, R2.31M ARR</td></tr>
+                    <tr><td>Month 25-36</td><td>Pan-African expansion planning, Phase 4 launched (Q3 2026), Enterprise team built</td><td>150 paying clients, R5.4M ARR</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ─── SECTION 21 ───────────────────────────────────────────── -->
+    <div class="section">
+        <div class="section-number">Section 21</div>
+        <h2>Appendix &amp; <span class="accent">Supporting Documents</span></h2>
+
         <p>Consider adding these supporting documents to make the plan complete:</p>
         <ul>
             <li><strong>A. Screenshots of live platform</strong> — Dashboard, Gatekeeper, Approval Chain, Invoices</li>
@@ -1123,6 +1277,11 @@
             <li><strong>D. Compliance gatekeeper checklist template</strong></li>
             <li><strong>E. Detailed competitor comparison matrix</strong></li>
             <li><strong>F. Founder's full CV and certifications</strong></li>
+            <li><strong>G. CSD Registration Report</strong> (already available)</li>
+            <li><strong>H. B-BBEE Certificate</strong> (already available)</li>
+            <li><strong>I. CIDB Registration Certificate</strong></li>
+            <li><strong>J. Tax Clearance Certificate</strong></li>
+            <li><strong>K. Company Registration Documents</strong></li>
         </ul>
     </div>
 
@@ -1132,7 +1291,7 @@
             <span class="confidential">🔒 Confidential</span> — Not for distribution
         </div>
         <div>
-            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 5.1 · June 2025
+            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 6.0 · June 2025
         </div>
     </div>
 
@@ -1216,6 +1375,9 @@
             .pricing-card.recommended .price { color: #e8650a; }
             .cert-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 8px 0; }
             .cert-item { background: #f8f8f8; border-radius: 6px; padding: 6px 10px; font-size: 12px; text-align: center; border: 1px solid #eee; }
+            .approval-schematic { background: #1a1a1a; color: #e0e0e0; padding: 20px 24px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.8; overflow-x: auto; margin: 12px 0; }
+            .approval-schematic .step { color: #f97316; font-weight: 700; }
+            .approval-schematic .arrow { color: #666; }
         </style></head><body>${content}</body></html>`;
         const blob = new Blob([fullDoc], { type: 'application/msword' });
         const url = URL.createObjectURL(blob);
