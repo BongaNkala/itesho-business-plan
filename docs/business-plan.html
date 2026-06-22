@@ -90,11 +90,50 @@
         .cert-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 8px 0; }
         .cert-item { background: #f8f8f8; border-radius: 6px; padding: 6px 10px; font-size: 12px; text-align: center; border: 1px solid #eee; }
         .badge-green-sm { display: inline-block; background: #10b981; color: #fff; padding: 1px 8px; border-radius: 100px; font-size: 9px; font-weight: 600; }
-        .approval-schematic { background: #1a1a1a; color: #e0e0e0; padding: 20px 24px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.8; overflow-x: auto; margin: 12px 0; }
-        .approval-schematic .step { color: #f97316; font-weight: 700; }
-        .approval-schematic .arrow { color: #666; }
-        @media (max-width: 820px) { .document-container { padding: 30px 24px; } .header { flex-direction: column; gap: 16px; } .header-right { text-align: left; } .toc-grid { grid-template-columns: 1fr 1fr; } .swot-grid { grid-template-columns: 1fr; } .info-grid { grid-template-columns: 1fr; } .approval-flow { flex-direction: column; } .approval-arrow { transform: rotate(90deg); } .pricing-grid { grid-template-columns: 1fr; } .cert-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 480px) { body { padding: 12px; } .document-container { padding: 20px 16px; } .toc-grid { grid-template-columns: 1fr; } .doc-title h1 { font-size: 26px; } .section h2 { font-size: 20px; } .cert-grid { grid-template-columns: 1fr; } .approval-schematic { font-size: 10px; padding: 12px 16px; } }
+        .approval-schematic { 
+            background: #0d0d0d; 
+            color: #e0e0e0; 
+            padding: 24px 28px; 
+            border-radius: 12px; 
+            font-family: 'Courier New', monospace; 
+            font-size: 13px; 
+            line-height: 1.9; 
+            overflow-x: auto; 
+            margin: 12px 0;
+            border: 1px solid #2a2a2a;
+        }
+        .approval-schematic .title { 
+            color: #f97316; 
+            font-weight: 700; 
+            text-align: center; 
+            font-size: 15px; 
+            letter-spacing: 2px;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .approval-schematic .step { 
+            color: #f97316; 
+            font-weight: 700; 
+        }
+        .approval-schematic .arrow { 
+            color: #555; 
+        }
+        .approval-schematic .golden-rule {
+            color: #f97316;
+            font-weight: 700;
+            text-align: center;
+            border-top: 2px solid #2a2a2a;
+            padding-top: 12px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+        .approval-schematic .yes { color: #10b981; font-weight: 700; }
+        .approval-schematic .no { color: #ef4444; font-weight: 700; }
+        .approval-schematic .indent { padding-left: 24px; }
+        .approval-schematic .indent2 { padding-left: 48px; }
+        @media (max-width: 820px) { .document-container { padding: 30px 24px; } .header { flex-direction: column; gap: 16px; } .header-right { text-align: left; } .toc-grid { grid-template-columns: 1fr 1fr; } .swot-grid { grid-template-columns: 1fr; } .info-grid { grid-template-columns: 1fr; } .approval-flow { flex-direction: column; } .approval-arrow { transform: rotate(90deg); } .pricing-grid { grid-template-columns: 1fr; } .cert-grid { grid-template-columns: 1fr 1fr; } .approval-schematic { font-size: 11px; padding: 16px 18px; } }
+        @media (max-width: 480px) { body { padding: 12px; } .document-container { padding: 20px 16px; } .toc-grid { grid-template-columns: 1fr; } .doc-title h1 { font-size: 26px; } .section h2 { font-size: 20px; } .cert-grid { grid-template-columns: 1fr; } .approval-schematic { font-size: 10px; padding: 12px 14px; } }
         @media print { body { background: #fff; padding: 0; } .document-container { box-shadow: none; padding: 40px; border-radius: 0; } .export-bar { display: none; } }
     </style>
 </head>
@@ -129,7 +168,7 @@
     <div class="doc-title">
         <h1>Complete Business Plan — Itesh<span>ō</span></h1>
         <div class="sub">Cloud-Based Project Control Platform · BOQ · RFQ · Invoice Control</div>
-        <div class="version">📄 V6.0 · June 2025</div>
+        <div class="version">📄 V6.1 · June 2025</div>
     </div>
 
     <!-- TOC -->
@@ -549,54 +588,49 @@
         <h2>The <span class="accent">Approval Chain</span></h2>
 
         <div class="approval-schematic">
-┌─────────────────────────────────────────────────────────────────────┐
-│                         ITESHO APPROVAL CHAIN                        │
-└─────────────────────────────────────────────────────────────────────┘
+            <div class="title">▐ ITESHO APPROVAL CHAIN ▐</div>
 
-STEP 1: COMPLIANCE GATEKEEPER
-───────────────────────────────
-Project starts → Compliance checklist required
-↓
-Is compliance complete? → NO → Block access to daily logs
-                      → YES → Proceed to Step 2
+            <div><span class="step">STEP 1: COMPLIANCE GATEKEEPER</span></div>
+            <div>Project starts → Compliance checklist required</div>
+            <div>↓</div>
+            <div>Is compliance complete? → <span class="no">NO</span> → Block access to daily logs</div>
+            <div>                      → <span class="yes">YES</span> → Proceed to Step 2</div>
+            <div>&nbsp;</div>
 
-STEP 2: DAILY LOG SUBMISSION
-───────────────────────────────
-Site team submits daily log
-- Work items completed
-- Quantities recorded
-- Photos attached
-- Weather, manpower, delays noted
-↓
-Daily log submitted for PM review
+            <div><span class="step">STEP 2: DAILY LOG SUBMISSION</span></div>
+            <div>Site team submits daily log</div>
+            <div class="indent">- Work items completed</div>
+            <div class="indent">- Quantities recorded</div>
+            <div class="indent">- Photos attached</div>
+            <div class="indent">- Weather, manpower, delays noted</div>
+            <div>↓</div>
+            <div>Daily log submitted for PM review</div>
+            <div>&nbsp;</div>
 
-STEP 3: PROJECT MANAGER APPROVAL
-──────────────────────────────────
-PM reviews daily log
-- Compares quantities to site conditions
-- Checks photos and evidence
-- Verifies against BOQ
-↓
-Is everything accurate? → NO → Reject. Contractor resubmits.
-                       → YES → Approve. Quantities lock in.
+            <div><span class="step">STEP 3: PROJECT MANAGER APPROVAL</span></div>
+            <div>PM reviews daily log</div>
+            <div class="indent">- Compares quantities to site conditions</div>
+            <div class="indent">- Checks photos and evidence</div>
+            <div class="indent">- Verifies against BOQ</div>
+            <div>↓</div>
+            <div>Is everything accurate? → <span class="no">NO</span> → Reject. Contractor resubmits.</div>
+            <div>                       → <span class="yes">YES</span> → Approve. Quantities lock in.</div>
+            <div>&nbsp;</div>
 
-STEP 4: AUTO-GENERATED INVOICE
-─────────────────────────────────
-Approved quantities + Rate = Invoice
-Invoice = (Approved Qty × Rate) for all approved items
-↓
-Invoice ready for payment
-         │
-         ↓
-        ✅ PAYMENT (No disputes)
+            <div><span class="step">STEP 4: AUTO-GENERATED INVOICE</span></div>
+            <div>Approved quantities + Rate = Invoice</div>
+            <div>Invoice = (Approved Qty × Rate) for all approved items</div>
+            <div>↓</div>
+            <div>Invoice ready for payment</div>
+            <div>│</div>
+            <div>↓</div>
+            <div><span class="yes">✅ PAYMENT (No disputes)</span></div>
+            <div>&nbsp;</div>
 
-═══════════════════════════════════════════════════════════════════════
-
-🔒 THE GOLDEN RULE:
-
-No Compliance → No Daily Log → No PM Approval → No Invoice
-
-═══════════════════════════════════════════════════════════════════════
+            <div class="golden-rule">🔒 THE GOLDEN RULE:</div>
+            <div class="golden-rule" style="font-size: 15px; border-top: none; padding-top: 0;">
+                No Compliance → No Daily Log → No PM Approval → No Invoice
+            </div>
         </div>
 
         <h3>5.1 Who Can Approve?</h3>
@@ -1129,16 +1163,6 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
                 </tbody>
             </table>
         </div>
-
-        <h3>16.2 Regulatory Environment</h3>
-        <ul>
-            <li><strong>POPIA (Protection of Personal Information Act):</strong> Full compliance by Phase 2. Data encryption, access controls, consent management.</li>
-            <li><strong>PAIA (Promotion of Access to Information Act):</strong> Manual available on request.</li>
-            <li><strong>CIDB Regulations:</strong> Contractors must maintain compliance with CIDB grading and requirements. Itesho helps clients maintain compliance.</li>
-            <li><strong>COID (Compensation for Occupational Injuries and Diseases):</strong> Contractors must be COID-compliant. Itesho tracks compliance expiry.</li>
-            <li><strong>SARS Tax Compliance:</strong> Itesho is fully tax-compliant, VAT registered, and tax clearance in order.</li>
-            <li><strong>Government Procurement (CSD):</strong> Registered supplier, ready for government tenders.</li>
-        </ul>
     </div>
 
     <!-- ─── SECTION 17 ───────────────────────────────────────────── -->
@@ -1158,8 +1182,7 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
                     <tr><td>Database</td><td>PostgreSQL with daily backups</td><td>Render / Supabase</td></tr>
                     <tr><td>SSL/TLS</td><td>Automatic via Let's Encrypt</td><td>—</td></tr>
                     <tr><td>Monitoring</td><td>Sentry (errors), Datadog (performance)</td><td>Sentry, Datadog</td></tr>
-                    <tr><td>Logging</td><td>CloudWatch-style logging</td><td>Render</td></tr>
-                    <tr><td>CI/CD</td><td>GitHub Actions or GitLab CI</td><td>GitHub</td></tr>
+                    <tr><td>CI/CD</td><td>GitHub Actions</td><td>GitHub</td></tr>
                 </tbody>
             </table>
         </div>
@@ -1182,37 +1205,27 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
         <div class="section-number">Section 18</div>
         <h2>Customer Success &amp; <span class="accent">Retention</span></h2>
 
-        <h3>18.1 Customer Success Philosophy</h3>
-        <p>Happy customers stay longer, refer more, and upgrade. Itesho's customer success program is designed to:</p>
-        <ul>
-            <li>Ensure customers achieve value within first 30 days</li>
-            <li>Proactively prevent churn</li>
-            <li>Identify expansion opportunities</li>
-            <li>Build a community of advocates</li>
-        </ul>
-
-        <h3>18.2 Customer Journey</h3>
+        <h3>18.1 Customer Journey</h3>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr><th>Phase</th><th>Activities</th><th>Owner</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Onboarding (Day 0-7)</strong></td><td>2-hour training call, import first BOQ, set up compliance checklist, invite users, welcome email with checklist</td><td>Founder (Year 1) → CS (Year 2+)</td></tr>
-                    <tr><td><strong>Adoption (Day 7-30)</strong></td><td>Check-in call (Day 3), feedback call (Day 10), usage monitoring (logins, daily logs, approvals, invoices)</td><td>CS Team</td></tr>
-                    <tr><td><strong>Growth (Month 1-6)</strong></td><td>Quarterly business reviews (QBRs) for Pro/Enterprise, feature request gathering, case study development</td><td>CS Team + Founder</td></tr>
-                    <tr><td><strong>Expansion (Month 6+)</strong></td><td>Identify opportunities to upsell (Starter → Pro → Enterprise), cross-sell (additional projects), referral program</td><td>CS Team + Sales</td></tr>
+                    <tr><td><strong>Onboarding (Day 0-7)</strong></td><td>2-hour training call, import first BOQ, set up compliance checklist, invite users</td><td>Founder (Year 1) → CS (Year 2+)</td></tr>
+                    <tr><td><strong>Adoption (Day 7-30)</strong></td><td>Check-in call (Day 3), feedback call (Day 10), usage monitoring</td><td>CS Team</td></tr>
+                    <tr><td><strong>Growth (Month 1-6)</strong></td><td>Quarterly business reviews (QBRs) for Pro/Enterprise</td><td>CS Team + Founder</td></tr>
+                    <tr><td><strong>Expansion (Month 6+)</strong></td><td>Upsell opportunities, cross-sell, referral program</td><td>CS Team + Sales</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <h3>18.3 Retention Metrics</h3>
+        <h3>18.2 Retention Metrics</h3>
         <ul>
             <li><strong>Monthly Churn Target:</strong> <3%</li>
             <li><strong>Net Revenue Retention (NRR):</strong> >100%</li>
             <li><strong>NPS:</strong> >50</li>
             <li><strong>CSAT:</strong> >90%</li>
-            <li><strong>Customer Health Score:</strong> Logins >10/month, Daily logs >5/month</li>
         </ul>
     </div>
 
@@ -1224,17 +1237,16 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
         <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>KPI</th><th>Target (Year 1)</th><th>Target (Year 2)</th><th>Target (Year 3)</th><th>Why It Matters</th></tr>
+                    <tr><th>KPI</th><th>Target (Year 1)</th><th>Target (Year 2)</th><th>Target (Year 3)</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Paying Projects</td><td>25</td><td>70</td><td>150</td><td>Core growth metric</td></tr>
-                    <tr><td>ARR</td><td>R750,000</td><td>R2.31M</td><td>R5.4M</td><td>Revenue growth</td></tr>
-                    <tr><td>Monthly Churn</td><td>5%</td><td>3%</td><td>2%</td><td>Customer retention</td></tr>
-                    <tr><td>LTV:CAC Ratio</td><td>8.6x</td><td>16.7x</td><td>28.2x</td><td>Marketing efficiency</td></tr>
-                    <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td><td>Unit economics</td></tr>
-                    <tr><td>NPS</td><td>50+</td><td>60+</td><td>70+</td><td>Customer satisfaction</td></tr>
-                    <tr><td>CSAT</td><td>90%</td><td>92%</td><td>95%</td><td>Customer happiness</td></tr>
-                    <tr><td>Avg Daily Logs/mo</td><td>30+</td><td>40+</td><td>50+</td><td>Product engagement</td></tr>
+                    <tr><td>Paying Projects</td><td>25</td><td>70</td><td>150</td></tr>
+                    <tr><td>ARR</td><td>R750,000</td><td>R2.31M</td><td>R5.4M</td></tr>
+                    <tr><td>Monthly Churn</td><td>5%</td><td>3%</td><td>2%</td></tr>
+                    <tr><td>LTV:CAC Ratio</td><td>8.6x</td><td>16.7x</td><td>28.2x</td></tr>
+                    <tr><td>Gross Margin</td><td>72%</td><td>78%</td><td>82%</td></tr>
+                    <tr><td>NPS</td><td>50+</td><td>60+</td><td>70+</td></tr>
+                    <tr><td>CSAT</td><td>90%</td><td>92%</td><td>95%</td></tr>
                 </tbody>
             </table>
         </div>
@@ -1251,14 +1263,14 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
                     <tr><th>Month</th><th>Key Activities</th><th>Milestone</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Month 1</td><td>Pilot outreach, compliance verification, founder-focused sales, initial case studies</td><td>First pilot signed</td></tr>
-                    <tr><td>Month 2-3</td><td>Pilot onboarding, daily log submission, feedback collection, case study writing</td><td>3 pilots active</td></tr>
-                    <tr><td>Month 4-6</td><td>Pilot to paid conversion, launch announcement, early content creation, LinkedIn/Google Ads starting</td><td>5 paying clients</td></tr>
-                    <tr><td>Month 7-9</td><td>Scaling sales, Junior Developer hired (Month 6), Marketing systems in place</td><td>12 paying clients</td></tr>
-                    <tr><td>Month 10-12</td><td>Sales Lead hired (Month 9), Customer Success part-time (Month 10), Phase 2 launched (Q3 2025)</td><td>25 paying clients, R750k ARR</td></tr>
-                    <tr><td>Month 13-18</td><td>Senior Developer hired (Month 18), Marketing Specialist hired, Phase 3 launched (Q1 2026)</td><td>50 paying clients, R1.5M ARR</td></tr>
-                    <tr><td>Month 19-24</td><td>Desktop version launched, Mobile app launched, Government pilots established</td><td>70 paying clients, R2.31M ARR</td></tr>
-                    <tr><td>Month 25-36</td><td>Pan-African expansion planning, Phase 4 launched (Q3 2026), Enterprise team built</td><td>150 paying clients, R5.4M ARR</td></tr>
+                    <tr><td>Month 1</td><td>Pilot outreach, founder sales</td><td>First pilot signed</td></tr>
+                    <tr><td>Month 2-3</td><td>Pilot onboarding, feedback collection</td><td>3 pilots active</td></tr>
+                    <tr><td>Month 4-6</td><td>Pilot to paid conversion, launch announcement</td><td>5 paying clients</td></tr>
+                    <tr><td>Month 7-9</td><td>Scaling sales, Junior Developer hired</td><td>12 paying clients</td></tr>
+                    <tr><td>Month 10-12</td><td>Sales Lead hired, Phase 2 launched</td><td>25 paying clients, R750k ARR</td></tr>
+                    <tr><td>Month 13-18</td><td>Senior Developer hired, Phase 3 launched</td><td>50 paying clients, R1.5M ARR</td></tr>
+                    <tr><td>Month 19-24</td><td>Desktop version, mobile app launched</td><td>70 paying clients, R2.31M ARR</td></tr>
+                    <tr><td>Month 25-36</td><td>Pan-African expansion, Phase 4 launched</td><td>150 paying clients, R5.4M ARR</td></tr>
                 </tbody>
             </table>
         </div>
@@ -1269,7 +1281,7 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
         <div class="section-number">Section 21</div>
         <h2>Appendix &amp; <span class="accent">Supporting Documents</span></h2>
 
-        <p>Consider adding these supporting documents to make the plan complete:</p>
+        <p>Consider adding these supporting documents:</p>
         <ul>
             <li><strong>A. Screenshots of live platform</strong> — Dashboard, Gatekeeper, Approval Chain, Invoices</li>
             <li><strong>B. Pilot client letters of intent</strong> (when secured)</li>
@@ -1291,7 +1303,7 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
             <span class="confidential">🔒 Confidential</span> — Not for distribution
         </div>
         <div>
-            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 6.0 · June 2025
+            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 6.1 · June 2025
         </div>
     </div>
 
@@ -1375,9 +1387,13 @@ No Compliance → No Daily Log → No PM Approval → No Invoice
             .pricing-card.recommended .price { color: #e8650a; }
             .cert-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 8px 0; }
             .cert-item { background: #f8f8f8; border-radius: 6px; padding: 6px 10px; font-size: 12px; text-align: center; border: 1px solid #eee; }
-            .approval-schematic { background: #1a1a1a; color: #e0e0e0; padding: 20px 24px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.8; overflow-x: auto; margin: 12px 0; }
+            .approval-schematic { background: #0d0d0d; color: #e0e0e0; padding: 24px 28px; border-radius: 12px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.9; overflow-x: auto; margin: 12px 0; border: 1px solid #2a2a2a; }
+            .approval-schematic .title { color: #f97316; font-weight: 700; text-align: center; font-size: 15px; letter-spacing: 2px; border-bottom: 1px solid #2a2a2a; padding-bottom: 10px; margin-bottom: 10px; }
             .approval-schematic .step { color: #f97316; font-weight: 700; }
-            .approval-schematic .arrow { color: #666; }
+            .approval-schematic .yes { color: #10b981; font-weight: 700; }
+            .approval-schematic .no { color: #ef4444; font-weight: 700; }
+            .approval-schematic .golden-rule { color: #f97316; font-weight: 700; text-align: center; border-top: 2px solid #2a2a2a; padding-top: 12px; margin-top: 12px; font-size: 14px; }
+            .approval-schematic .indent { padding-left: 24px; }
         </style></head><body>${content}</body></html>`;
         const blob = new Blob([fullDoc], { type: 'application/msword' });
         const url = URL.createObjectURL(blob);
