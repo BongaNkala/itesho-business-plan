@@ -115,7 +115,7 @@
         <div class="header-right">
             <strong>Itesho — A product of Thee Landlord (Pty) Ltd</strong><br />
             Reg: 2019/287364/07<br />
-            <span style="color:#f97316;">●</span> Installed Software<br />
+            <span style="color:#f97316;">●</span> Cloud-Based SaaS<br />
             <span class="badge">B-BBEE Level 1</span>
             <span class="badge" style="background:#10b981;">100% Black-Owned</span>
         </div>
@@ -124,8 +124,8 @@
     <!-- TITLE -->
     <div class="doc-title">
         <h1>Business Plan — Itesh<span>ō</span></h1>
-        <div class="sub">Installed Project Control Platform · BOQ · RFQ · Invoice Control</div>
-        <div class="version">📄 V4.2 · June 2025</div>
+        <div class="sub">Cloud-Based Project Control Platform · BOQ · RFQ · Invoice Control</div>
+        <div class="version">📄 V4.3 · June 2025</div>
     </div>
 
     <!-- TOC -->
@@ -154,16 +154,16 @@
 
         <h3>1.1 Business Concept</h3>
         <p>
-            <strong>Itesho</strong> is a <strong>project control platform</strong> developed by <strong>Thee Landlord (Pty) Ltd</strong>. The platform is designed to manage <strong>BOQ (Bill of Quantities), RFQs (Request for Quotations), compliance, and invoice control</strong> across multiple industries — with a primary focus on construction, but extending to any project-based environment.
+            <strong>Itesho</strong> is a <strong>cloud-based project control platform</strong> developed by <strong>Thee Landlord (Pty) Ltd</strong>. The platform is designed to manage <strong>BOQ (Bill of Quantities), RFQs (Request for Quotations), compliance, and invoice control</strong> across multiple industries — with a primary focus on construction, but extending to any project-based environment.
         </p>
         <p>
-            Itesho is <strong>installed software</strong> — deployed on the client's own infrastructure (on-premise or private cloud). This provides clients with <strong>full control over their data, security, and customisation</strong>.
+            Itesho is <strong>cloud-native SaaS</strong> deployed on <strong>Vercel (frontend) and Render (backend)</strong>, with <strong>PostgreSQL</strong> as the database. A <strong>desktop version</strong> is also available for clients who prefer offline access or have specific data sovereignty requirements.
         </p>
         <p>
-            The platform consists of a <strong>React + Vite frontend</strong> and a <strong>Django REST Framework + PostgreSQL backend</strong>, with JWT authentication via <strong>djangorestframework-simplejwt</strong>.
+            The platform uses <strong>React + Vite</strong> for the frontend and <strong>Django REST Framework</strong> for the backend, with <strong>JWT authentication</strong> via <strong>djangorestframework-simplejwt</strong>.
         </p>
         <p>
-            The name "Itesho" reflects the platform's South African roots. The system is built with <strong>Rand-based pricing</strong> and local compliance requirements in mind, with a <strong>once-off setup fee + monthly per-project pricing</strong>.
+            The name "Itesho" reflects the platform's South African roots. The system is built with <strong>Rand-based pricing</strong> and local compliance requirements in mind, with a <strong>monthly subscription model (per project)</strong>.
         </p>
 
         <div class="highlight-box">
@@ -173,10 +173,11 @@
         <h3>1.2 Product Overview</h3>
         <ul>
             <li><strong>Product Name:</strong> Itesho</li>
-            <li><strong>Type:</strong> Installed Software (On-premise / Private Cloud)</li>
+            <li><strong>Type:</strong> Cloud-Based SaaS (Desktop version available)</li>
             <li><strong>Industries:</strong> Construction, Infrastructure, Engineering, Facilities Management, Government Tenders</li>
             <li><strong>Core Modules:</strong> BOQ, RFQ, Compliance Gatekeeper, Daily Logs, <strong>Project Manager Approval</strong>, Invoicing</li>
-            <li><strong>Pricing Model:</strong> Once-off setup fee + monthly per-project subscription</li>
+            <li><strong>Pricing Model:</strong> Monthly subscription (per project, per month)</li>
+            <li><strong>Deployment:</strong> Vercel (Frontend) · Render (Backend) · PostgreSQL (Database)</li>
         </ul>
     </div>
 
@@ -264,17 +265,17 @@
 
         <h3>3.2 Mission</h3>
         <p>
-            To <strong>certify what gets invoiced</strong> by providing an installed platform that ensures <strong>compliance, Project Manager approval, and accuracy</strong> at every step of the project lifecycle.
+            To <strong>certify what gets invoiced</strong> by providing a cloud-based platform that ensures <strong>compliance, Project Manager approval, and accuracy</strong> at every step of the project lifecycle.
         </p>
 
         <h3>3.3 Goals</h3>
         <h4>3.3.1 Business Start-up Phase (0-6 Months)</h4>
         <ul>
             <li>Complete company registration and compliance ✓</li>
-            <li>Finalise MVP deployment ✓</li>
+            <li>Finalise MVP deployment (Vercel + Render) ✓</li>
             <li>Onboard first 5 pilot clients</li>
             <li>Establish Project Manager approval workflows with pilot clients</li>
-            <li>Establish installation and setup processes</li>
+            <li>Launch desktop version (Electron wrapper)</li>
         </ul>
 
         <h4>3.3.2 Business Growth Phase (6-18 Months)</h4>
@@ -282,7 +283,7 @@
             <li>Reach 50+ paying clients</li>
             <li>Implement advanced features (analytics, reporting)</li>
             <li>Build a dedicated sales and support team</li>
-            <li>Achieve R3M+ annual recurring revenue (ARR)</li>
+            <li>Achieve R2.5M+ annual recurring revenue (ARR)</li>
         </ul>
 
         <h4>3.3.3 Business Mature Phase (18-36 Months)</h4>
@@ -301,17 +302,28 @@
 
         <h3>4.1 Revenue Model</h3>
         <p>
-            Itesho uses a <strong>hybrid revenue model</strong>:
+            Itesho uses a <strong>pure SaaS subscription model</strong>:
         </p>
         <ul>
-            <li><strong>Once-off Setup Fee:</strong> Covers installation, configuration, training, and data migration</li>
-            <li><strong>Monthly Subscription (per project):</strong> Ongoing access to the platform</li>
-            <li><strong>Annual Maintenance (Optional):</strong> Support, updates, and premium assistance</li>
+            <li><strong>Monthly Subscription (per project):</strong> All-inclusive access to the platform</li>
+            <li><strong>Annual Subscription (discount):</strong> 2 months free when paying annually</li>
+            <li><strong>Desktop Version:</strong> Available as a separate license for offline access</li>
         </ul>
 
         <div class="highlight-box">
-            <strong>💰 Pricing Model:</strong> Once-off setup fee + monthly per-project subscription.
+            <strong>💰 Pricing Model:</strong> Monthly subscription (per project, per month). No setup fees. No hidden costs.
         </div>
+
+        <h3>4.2 Value Proposition</h3>
+        <ul>
+            <li><strong>Stop disputes before they start</strong> — Compliance gatekeeper ensures only compliant work is submitted</li>
+            <li><strong>Project Manager certifies all work</strong> — No invoice is generated without <strong>Project Manager approval</strong></li>
+            <li><strong>Auto‑calculated invoices</strong> — Approved quantity × Rate = Invoice amount. No manual entry, no errors</li>
+            <li><strong>Full audit trail</strong> — Every approval is tracked and timestamped with the approver's identity</li>
+            <li><strong>Cloud-native</strong> — Access anywhere, no installation required</li>
+            <li><strong>Desktop version</strong> — For offline access and data sovereignty</li>
+            <li><strong>Multi-industry</strong> — Construction, infrastructure, facilities management, government tenders</li>
+        </ul>
     </div>
 
     <!-- ─── SECTION 5 ────────────────────────────────────────────── -->
@@ -319,152 +331,107 @@
         <div class="section-number">Section 5</div>
         <h2>Pricing Structure</h2>
 
-        <h3>5.1 Once-off Setup Fees</h3>
+        <h3>5.1 Cloud-Based SaaS Pricing</h3>
         <p>
-            The setup fee covers the complete installation, configuration, training, and first project setup:
+            All plans include <strong>full access</strong> to the platform with <strong>no setup fees</strong>. Pricing is per project, per month.
         </p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
                 <div class="plan">🌱 Starter</div>
-                <div class="setup">R20,000</div>
-                <div class="monthly">+ R1,500/month per project</div>
+                <div class="setup">R1,500</div>
+                <div class="monthly">per project / per month</div>
                 <ul class="features">
                     <li>1-3 projects</li>
                     <li>Up to 5 users</li>
-                    <li>Basic BOQ import</li>
-                    <li>1 day training</li>
+                    <li>Basic BOQ management</li>
+                    <li>Daily logs</li>
                     <li>Email support</li>
                 </ul>
             </div>
             <div class="pricing-card recommended">
                 <div class="plan">📈 Pro</div>
-                <div class="setup">R35,000</div>
-                <div class="monthly">+ R3,500/month per project</div>
+                <div class="setup">R3,500</div>
+                <div class="monthly">per project / per month</div>
                 <ul class="features">
                     <li>3-10 projects</li>
                     <li>Up to 15 users</li>
                     <li>Full BOQ &amp; RFQ</li>
                     <li>PM approval workflow</li>
-                    <li>2 days training</li>
+                    <li>Compliance gatekeeper</li>
+                    <li>Auto-invoicing</li>
                     <li>Priority support</li>
                     <li><strong style="color:#f97316;">⭐ Most Popular</strong></li>
                 </ul>
             </div>
             <div class="pricing-card">
                 <div class="plan">🏢 Enterprise</div>
-                <div class="setup">R55,000</div>
-                <div class="monthly">+ R5,500+/month per project</div>
+                <div class="setup">R5,500+</div>
+                <div class="monthly">per project / per month</div>
                 <ul class="features">
                     <li>10+ projects</li>
                     <li>Unlimited users</li>
                     <li>Full customisation</li>
                     <li>Multi-level approval</li>
-                    <li>5 days training</li>
+                    <li>Advanced reporting</li>
                     <li>24/7 priority support</li>
                     <li>SLA included</li>
                 </ul>
             </div>
         </div>
 
-        <h3>5.2 Setup Fee Breakdown (Pro Package - R35,000)</h3>
+        <h3>5.2 Annual Subscription (Save 17%)</h3>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
-                        <th>Service</th>
-                        <th>Hours</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Installation &amp; Deployment</td>
-                        <td>8-12</td>
-                        <td>R6,000</td>
-                    </tr>
-                    <tr>
-                        <td>Database Setup &amp; Configuration</td>
-                        <td>4-6</td>
-                        <td>R3,500</td>
-                    </tr>
-                    <tr>
-                        <td>BOQ Import (first project)</td>
-                        <td>4-6</td>
-                        <td>R3,500</td>
-                    </tr>
-                    <tr>
-                        <td>User Setup (first 5 users)</td>
-                        <td>3-5</td>
-                        <td>R2,500</td>
-                    </tr>
-                    <tr>
-                        <td>Training (2 sessions)</td>
-                        <td>6-8</td>
-                        <td>R5,000</td>
-                    </tr>
-                    <tr>
-                        <td>Configuration &amp; Customisation</td>
-                        <td>6-10</td>
-                        <td>R6,000</td>
-                    </tr>
-                    <tr>
-                        <td>Testing &amp; Quality Assurance</td>
-                        <td>4-6</td>
-                        <td>R3,500</td>
-                    </tr>
-                    <tr>
-                        <td>Documentation &amp; Handover</td>
-                        <td>3-4</td>
-                        <td>R2,500</td>
-                    </tr>
-                    <tr>
-                        <td>Project Management</td>
-                        <td>4-6</td>
-                        <td>R3,500</td>
-                    </tr>
-                    <tr style="font-weight:600; border-top:2px solid #eee;">
-                        <td><strong>TOTAL</strong></td>
-                        <td><strong>42-63</strong></td>
-                        <td><strong>R36,000</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>5.3 Annual Maintenance (Optional)</h3>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Package</th>
-                        <th>Annual Maintenance Fee</th>
-                        <th>Includes</th>
+                        <th>Plan</th>
+                        <th>Monthly</th>
+                        <th>Annual (12 months for price of 10)</th>
+                        <th>Savings</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Starter</td>
-                        <td>R3,600/year</td>
-                        <td>Updates, basic support</td>
+                        <td>R1,500</td>
+                        <td>R15,000</td>
+                        <td>R3,000</td>
                     </tr>
                     <tr>
-                        <td>Pro</td>
-                        <td>R8,400/year</td>
-                        <td>Updates, priority support, minor customisations</td>
+                        <td><strong>Pro</strong></td>
+                        <td><strong>R3,500</strong></td>
+                        <td><strong>R35,000</strong></td>
+                        <td><strong>R7,000</strong></td>
                     </tr>
                     <tr>
                         <td>Enterprise</td>
-                        <td>R13,200+/year</td>
-                        <td>Updates, 24/7 support, major customisations, SLA</td>
+                        <td>R5,500+</td>
+                        <td>R55,000+</td>
+                        <td>R11,000+</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+        <h3>5.3 Desktop Version</h3>
         <div class="highlight-box">
-            <strong>📌 Recommendation:</strong> Standard setup fee of <strong>R35,000</strong> for most clients. <strong>R20,000</strong> for small contractors. <strong>R55,000</strong> for enterprise clients.
+            <strong>💻 Desktop Version:</strong><br />
+            • <strong>One-time license:</strong> R5,000 per seat (includes 1 year of updates)<br />
+            • <strong>Annual maintenance:</strong> R1,500 per seat (updates + support)<br />
+            • <strong>Offline access:</strong> Full functionality without internet<br />
+            • <strong>Data sovereignty:</strong> All data stored locally
         </div>
+
+        <h3>5.4 What's Included in All Plans</h3>
+        <ul>
+            <li><strong>No setup fees</strong> — Just sign up and start using</li>
+            <li><strong>Free onboarding</strong> — 2-hour training session</li>
+            <li><strong>Free data migration</strong> — Import your first BOQ from Excel</li>
+            <li><strong>Weekly backups</strong> — Your data is always safe</li>
+            <li><strong>SSL encryption</strong> — All data encrypted in transit</li>
+            <li><strong>99.9% uptime SLA</strong> — Guaranteed availability</li>
+        </ul>
     </div>
 
     <!-- ─── SECTION 6 ────────────────────────────────────────────── -->
@@ -474,7 +441,7 @@
 
         <h3>6.1 Itesho Platform Overview</h3>
         <p>
-            Itesho is a <strong>project control platform</strong> built specifically for <strong>BOQ tracking, RFQ management, compliance, and invoice control</strong>.
+            Itesho is a <strong>cloud-based project control platform</strong> built specifically for <strong>BOQ tracking, RFQ management, compliance, and invoice control</strong>.
         </p>
 
         <h4>6.1.1 Core Modules (Based on Live Application)</h4>
@@ -628,9 +595,9 @@
             Itesho <strong>blocks access</strong> to daily logs if compliance is not met.
         </p>
 
-        <h4>9.1.3 Installed Software Advantage</h4>
+        <h4>9.1.3 Cloud-Native + Desktop Option</h4>
         <p>
-            Clients retain <strong>full control</strong> over their data, security, and customisation.
+            Itesho is <strong>cloud-native</strong> with a <strong>desktop version</strong> for offline access — the best of both worlds.
         </p>
 
         <h4>9.1.4 Built for South Africa</h4>
@@ -648,8 +615,8 @@
                         <th>Compliance</th>
                         <th>PM Approval</th>
                         <th>Auto-Invoicing</th>
-                        <th>Installed</th>
-                        <th>Price</th>
+                        <th>Desktop</th>
+                        <th>Price (monthly)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -661,7 +628,7 @@
                         <td>✅</td>
                         <td>✅</td>
                         <td>✅</td>
-                        <td>R20k-R55k + R1.5k-R5.5k/mo</td>
+                        <td>R1,500 - R5,500</td>
                     </tr>
                     <tr>
                         <td>BuildSmart</td>
@@ -671,7 +638,7 @@
                         <td>❌</td>
                         <td>❌</td>
                         <td>❌</td>
-                        <td>R8,000+/mo</td>
+                        <td>R8,000+</td>
                     </tr>
                     <tr>
                         <td>Procore</td>
@@ -681,7 +648,7 @@
                         <td>✅</td>
                         <td>❌</td>
                         <td>❌</td>
-                        <td>R12,000+/mo</td>
+                        <td>R12,000+</td>
                     </tr>
                 </tbody>
             </table>
@@ -699,8 +666,9 @@
                 <ul>
                     <li>Project Manager approval workflow</li>
                     <li>Compliance gatekeeper</li>
-                    <li>Installed software — full data control</li>
-                    <li>Affordable setup + monthly model</li>
+                    <li>Cloud-native + desktop option</li>
+                    <li>Affordable monthly pricing</li>
+                    <li>No setup fees</li>
                     <li>B-BBEE Level 1 · 100% Black-Owned</li>
                     <li>CIDB registered</li>
                 </ul>
@@ -747,12 +715,22 @@
             <li><strong>Invoice Generation:</strong> Auto-calculated from approved quantities</li>
         </ol>
 
-        <h3>11.2 Installation &amp; Deployment</h3>
+        <h3>11.2 Cloud Deployment</h3>
         <ul>
-            <li><strong>Client Infrastructure:</strong> On-premise or private cloud</li>
-            <li><strong>Supported OS:</strong> Ubuntu 20.04+, Windows Server 2019+</li>
-            <li><strong>Database:</strong> PostgreSQL 13+</li>
-            <li><strong>Setup Time:</strong> 2-5 days depending on complexity</li>
+            <li><strong>Frontend:</strong> Vercel (React + Vite)</li>
+            <li><strong>Backend:</strong> Render (Django REST Framework)</li>
+            <li><strong>Database:</strong> PostgreSQL (Render or Supabase)</li>
+            <li><strong>Auth:</strong> JWT (djangorestframework-simplejwt)</li>
+            <li><strong>Backup:</strong> Automated daily backups</li>
+            <li><strong>Uptime:</strong> 99.9% SLA</li>
+        </ul>
+
+        <h3>11.3 Desktop Version</h3>
+        <ul>
+            <li><strong>Technology:</strong> Electron wrapper</li>
+            <li><strong>Platforms:</strong> Windows, macOS, Linux</li>
+            <li><strong>Offline Mode:</strong> Full functionality without internet</li>
+            <li><strong>Sync:</strong> Automatic sync when online</li>
         </ul>
     </div>
 
@@ -761,52 +739,97 @@
         <div class="section-number">Section 12</div>
         <h2>Financial Plan</h2>
 
-        <h3>12.1 Revenue Projections (Including Setup Fees)</h3>
+        <h3>12.1 Revenue Projections</h3>
         <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
                         <th>Year</th>
-                        <th>New Clients</th>
-                        <th>Setup Revenue</th>
-                        <th>Monthly Revenue</th>
-                        <th>Total Revenue</th>
+                        <th>Projects</th>
+                        <th>Avg Monthly Revenue</th>
+                        <th>Annual Revenue</th>
+                        <th>Growth</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>Year 1</strong></td>
-                        <td>20</td>
-                        <td>R700,000</td>
+                        <td>30</td>
+                        <td>R2,500</td>
                         <td>R900,000</td>
-                        <td><strong>R1,600,000</strong></td>
+                        <td>—</td>
                     </tr>
                     <tr>
                         <td><strong>Year 2</strong></td>
-                        <td>50</td>
-                        <td>R1,750,000</td>
+                        <td>80</td>
+                        <td>R2,750</td>
                         <td>R2,640,000</td>
-                        <td><strong>R4,390,000</strong></td>
+                        <td>+193%</td>
                     </tr>
                     <tr>
                         <td><strong>Year 3</strong></td>
-                        <td>80</td>
-                        <td>R2,800,000</td>
+                        <td>160</td>
+                        <td>R3,000</td>
                         <td>R5,760,000</td>
-                        <td><strong>R8,560,000</strong></td>
+                        <td>+118%</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h3>12.2 Funding Requirements</h3>
+        <h3>12.2 Cost Structure</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expense Category</th>
+                        <th>Monthly (Year 1)</th>
+                        <th>Annual (Year 1)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cloud Infrastructure (Vercel + Render + PostgreSQL)</td>
+                        <td>R2,000</td>
+                        <td>R24,000</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing</td>
+                        <td>R8,500</td>
+                        <td>R102,000</td>
+                    </tr>
+                    <tr>
+                        <td>Salaries (Founder)</td>
+                        <td>R25,000</td>
+                        <td>R300,000</td>
+                    </tr>
+                    <tr>
+                        <td>Administration</td>
+                        <td>R2,000</td>
+                        <td>R24,000</td>
+                    </tr>
+                    <tr>
+                        <td>Legal &amp; Compliance</td>
+                        <td>R1,500</td>
+                        <td>R18,000</td>
+                    </tr>
+                    <tr style="font-weight:600; border-top:2px solid #eee;">
+                        <td><strong>Total Operating Expenses</strong></td>
+                        <td><strong>R39,000</strong></td>
+                        <td><strong>R468,000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>12.3 Funding Requirements</h3>
         <div class="highlight-box">
             <strong>💰 Capital Required:</strong> R500,000<br />
             <strong>Use of Funds:</strong><br />
-            • Infrastructure &amp; Development: R150,000<br />
-            • Marketing &amp; Sales: R120,000<br />
-            • Working Capital: R100,000<br />
-            • Salaries: R130,000
+            • Cloud Infrastructure: R50,000<br />
+            • Marketing &amp; Sales: R150,000<br />
+            • Working Capital: R150,000<br />
+            • Salaries: R150,000
         </div>
     </div>
 
@@ -816,7 +839,7 @@
             <span class="confidential">🔒 Confidential</span> — Not for distribution
         </div>
         <div>
-            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 4.2 · June 2025
+            Itesho — A product of Thee Landlord (Pty) Ltd · Reg: 2019/287364/07 · Version 4.3 · June 2025
         </div>
     </div>
 
